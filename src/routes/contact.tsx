@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Instagram, Youtube, Facebook, Linkedin, Twitter, Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
+import { Instagram, Youtube, Facebook, Linkedin, Twitter, Mail, Phone, MapPin, ArrowUpRight, MessageCircle } from "lucide-react";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -18,53 +18,54 @@ function Contact() {
   const [sent, setSent] = useState(false);
   return (
     <div>
-      <section className="mx-auto max-w-[1600px] px-6 md:px-10 pt-16 pb-12">
-        <p className="text-xs uppercase tracking-[0.3em] text-gold/80">get in touch</p>
-        <h1 className="text-display text-6xl md:text-[9vw] mt-6 leading-[0.9]">
-          Let's align our<br/>
-          <span className="text-italic-serif text-gold">orbits.</span>
+      <section className="px-6 md:px-10 pt-10 pb-12 text-center">
+        <span className="inline-block bg-lime border-2 border-ink rounded-full px-4 py-1 text-sm rotate-[-3deg] mb-6">say hi ✦</span>
+        <h1 className="text-display text-[16vw] md:text-[11vw] leading-[0.88]">
+          let's align<br/>
+          our <span className="text-serif-italic">orbits.</span>
         </h1>
       </section>
 
-      <section className="mx-auto max-w-[1600px] px-6 md:px-10 pb-28 grid md:grid-cols-12 gap-12">
+      <section className="px-6 md:px-10 pb-28 grid md:grid-cols-12 gap-12">
         <div className="md:col-span-5 space-y-10">
-          <div>
-            <p className="text-xs uppercase tracking-[0.3em] text-gold/80 mb-4">Studio</p>
-            <ul className="space-y-3 text-lg">
-              <li className="flex gap-3 items-center"><Mail size={18} className="text-gold"/> hello@lunara.studio</li>
-              <li className="flex gap-3 items-center"><Phone size={18} className="text-gold"/> +91 98765 43210</li>
-              <li className="flex gap-3 items-center"><MapPin size={18} className="text-gold"/> Bandra West, Mumbai</li>
+          <div className="rounded-2xl border-2 border-ink p-8 bg-pink">
+            <p className="text-xs uppercase tracking-widest mb-4">Studio</p>
+            <ul className="space-y-3 text-lg text-ink">
+              <li className="flex gap-3 items-center"><Mail size={18}/> hello@lunara.studio</li>
+              <li className="flex gap-3 items-center"><Phone size={18}/> +91 98765 43210</li>
+              <li className="flex gap-3 items-center"><MessageCircle size={18}/> WhatsApp us</li>
+              <li className="flex gap-3 items-center"><MapPin size={18}/> Bandra West, Mumbai</li>
             </ul>
           </div>
           <div>
-            <p className="text-xs uppercase tracking-[0.3em] text-gold/80 mb-4">Follow the studio</p>
-            <div className="flex gap-3">
+            <p className="text-xs uppercase tracking-widest mb-4">Follow the studio</p>
+            <div className="flex flex-wrap gap-3">
               {[
-                { I: Instagram, l: "Instagram" },
-                { I: Youtube, l: "YouTube" },
-                { I: Facebook, l: "Facebook" },
-                { I: Linkedin, l: "LinkedIn" },
-                { I: Twitter, l: "Twitter / X" },
-              ].map(({ I, l }) => (
-                <a key={l} href="#" aria-label={l} className="grid h-12 w-12 place-items-center rounded-full border border-border hover:border-gold hover:text-gold hover:bg-gold/10 transition">
-                  <I size={18}/>
+                { I: Instagram, l: "Instagram", c: "var(--pink)" },
+                { I: Youtube, l: "YouTube", c: "var(--coral)" },
+                { I: Facebook, l: "Facebook", c: "var(--blue)" },
+                { I: Linkedin, l: "LinkedIn", c: "var(--lilac)" },
+                { I: Twitter, l: "Twitter / X", c: "var(--lime)" },
+              ].map(({ I, l, c }) => (
+                <a key={l} href="#" aria-label={l} className="grid h-14 w-14 place-items-center rounded-full border-2 border-ink hover:rotate-12 transition" style={{ background: c }}>
+                  <I size={20} className="text-ink"/>
                 </a>
               ))}
             </div>
           </div>
-          <div className="border-l-2 border-gold/40 pl-6 text-italic-serif text-2xl text-cream/80">
-            "We respond within one moon cycle — usually under 24 hours."
+          <div className="border-l-4 border-ink pl-6 text-serif-italic text-2xl">
+            we respond within one moon cycle — usually under 24 hours.
           </div>
         </div>
 
-        <form className="md:col-span-7 space-y-6" onSubmit={(e) => { e.preventDefault(); setSent(true); }}>
+        <form className="md:col-span-7 rounded-2xl border-2 border-ink p-8 md:p-10 bg-cream" onSubmit={(e) => { e.preventDefault(); setSent(true); }}>
           {sent ? (
-            <div className="border border-gold/40 rounded-sm p-10 text-center bg-violet/10">
-              <h3 className="text-display text-4xl text-gold">✦ message received</h3>
-              <p className="mt-4 text-cream/80">Thank you. We'll be in touch before the next full moon.</p>
+            <div className="text-center py-16">
+              <div className="text-display text-6xl">message <span className="text-serif-italic">received ✦</span></div>
+              <p className="mt-6 text-lg">Thank you. We'll be in touch before the next full moon.</p>
             </div>
           ) : (
-            <>
+            <div className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <Field label="Your name" name="name" />
                 <Field label="Email" name="email" type="email" />
@@ -75,13 +76,13 @@ function Contact() {
               </div>
               <SelectField label="What do you need?" name="service" options={["Video Editing", "Social Media", "Performance Ads", "Content Strategy", "Profile Management", "Brand Identity", "Everything"]} />
               <div>
-                <label className="text-xs uppercase tracking-widest text-gold/80">Tell us your story</label>
-                <textarea name="msg" rows={5} className="mt-2 w-full bg-transparent border-b border-border focus:border-gold outline-none py-3 text-cream resize-none" placeholder="What are you building?"/>
+                <label className="text-xs uppercase tracking-widest">Tell us your story</label>
+                <textarea name="msg" rows={5} className="mt-2 w-full bg-transparent border-b-2 border-ink focus:border-coral outline-none py-3 resize-none" placeholder="What are you building?"/>
               </div>
-              <button className="inline-flex items-center gap-3 rounded-full bg-gold px-8 py-4 text-ink font-medium hover:bg-cream transition">
-                Send transmission <ArrowUpRight size={18}/>
+              <button className="inline-flex items-center gap-3 rounded-full bg-ink px-8 py-4 text-cream font-medium hover:bg-coral transition">
+                send transmission <ArrowUpRight size={18}/>
               </button>
-            </>
+            </div>
           )}
         </form>
       </section>
@@ -92,8 +93,8 @@ function Contact() {
 function Field({ label, name, type = "text" }: { label: string; name: string; type?: string }) {
   return (
     <div>
-      <label className="text-xs uppercase tracking-widest text-gold/80">{label}</label>
-      <input type={type} name={name} className="mt-2 w-full bg-transparent border-b border-border focus:border-gold outline-none py-3 text-cream"/>
+      <label className="text-xs uppercase tracking-widest">{label}</label>
+      <input type={type} name={name} className="mt-2 w-full bg-transparent border-b-2 border-ink focus:border-coral outline-none py-3"/>
     </div>
   );
 }
@@ -102,10 +103,10 @@ function SelectField({ label, name, options }: { label: string; name: string; op
   const opts = options ?? ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"];
   return (
     <div>
-      <label className="text-xs uppercase tracking-widest text-gold/80">{label}</label>
-      <select name={name} className="mt-2 w-full bg-transparent border-b border-border focus:border-gold outline-none py-3 text-cream">
-        <option value="" className="bg-background">Select…</option>
-        {opts.map(o => <option key={o} value={o} className="bg-background">{o}</option>)}
+      <label className="text-xs uppercase tracking-widest">{label}</label>
+      <select name={name} className="mt-2 w-full bg-transparent border-b-2 border-ink focus:border-coral outline-none py-3">
+        <option value="">Select…</option>
+        {opts.map(o => <option key={o} value={o}>{o}</option>)}
       </select>
     </div>
   );
