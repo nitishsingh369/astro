@@ -13,7 +13,7 @@ export function Reveal({
   threshold = 0.15,
 }: {
   children: ReactNode;
-  as?: keyof JSX.IntrinsicElements;
+  as?: keyof React.JSX.IntrinsicElements;
   variant?: Variant;
   delay?: number;
   duration?: number;
