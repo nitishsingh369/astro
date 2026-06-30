@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
+import { Reveal } from "@/components/Reveal";
 import work1 from "@/assets/work-1.jpg";
 import work2 from "@/assets/work-2.jpg";
 import work3 from "@/assets/work-3.jpg";
@@ -41,13 +42,13 @@ function Work() {
       <section className="px-6 md:px-10 pb-28">
         <div className="grid gap-x-6 gap-y-20 md:grid-cols-2">
           {projects.map((p, i) => (
-            <a key={p.title} href="#" className={`group block ${i % 3 === 0 ? "md:translate-y-12" : ""}`}>
+            <Reveal as="a" key={p.title} variant={i % 2 === 0 ? "left" : "right"} delay={(i % 2) * 120} className={`group block ${i % 3 === 0 ? "md:translate-y-12" : ""}`}>
               <div className="relative overflow-hidden rounded-2xl border-2 border-ink">
                 <img src={p.img} alt={p.title} loading="lazy" width={1024} height={1280} className="aspect-[4/5] w-full object-cover transition duration-700 group-hover:scale-105" />
                 <span className="absolute top-4 right-4 bg-ink text-cream text-xs px-3 py-1 rounded-full">{p.year}</span>
               </div>
               <div className="relative -mt-4 ml-4">
-                <span className="inline-block px-4 py-2 rounded-full text-sm font-medium text-ink rotate-[-2deg]" style={{ background: p.color }}>
+                <span className="inline-block px-4 py-2 rounded-full text-sm font-medium text-ink rotate-[-2deg] group-hover:rotate-[2deg] transition-transform duration-500" style={{ background: p.color }}>
                   {p.title}
                 </span>
               </div>
@@ -58,7 +59,7 @@ function Work() {
                 </div>
                 <p className="text-serif-italic text-xl">{p.res}</p>
               </div>
-            </a>
+            </Reveal>
           ))}
         </div>
       </section>

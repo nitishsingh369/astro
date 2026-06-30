@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, Video, Share2, TrendingUp, PenLine, UserCog, Sparkles } from "lucide-react";
+import { Reveal } from "@/components/Reveal";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -45,23 +46,23 @@ function Services() {
           return (
             <div key={s.n} className={`border-t-2 border-ink ${flip ? "bg-ink text-cream" : ""}`}>
               <div className="px-6 md:px-10 py-20 grid md:grid-cols-12 gap-10 items-start">
-                <div className="md:col-span-2">
-                  <div className="grid h-20 w-20 place-items-center rounded-full border-2" style={{ background: color, borderColor: flip ? "var(--cream)" : "var(--ink)" }}>
+                <Reveal variant="zoom" className="md:col-span-2">
+                  <div className="grid h-20 w-20 place-items-center rounded-full border-2 wiggle" style={{ background: color, borderColor: flip ? "var(--cream)" : "var(--ink)" }}>
                     <s.icon size={32} className="text-ink"/>
                   </div>
                   <div className="text-display text-5xl mt-4">{s.n}</div>
-                </div>
-                <div className="md:col-span-6">
+                </Reveal>
+                <Reveal variant="left" delay={100} className="md:col-span-6">
                   <h2 className="text-display text-6xl md:text-8xl">{s.t}</h2>
                   <p className="mt-6 text-lg max-w-xl opacity-90">{s.d}</p>
-                </div>
-                <ul className="md:col-span-4 space-y-3">
+                </Reveal>
+                <Reveal as="ul" variant="right" delay={200} className="md:col-span-4 space-y-3">
                   {s.items.map(it => (
                     <li key={it} className="flex gap-3 border-b border-current/20 pb-3">
                       <span style={{ color }}>✦</span>{it}
                     </li>
                   ))}
-                </ul>
+                </Reveal>
               </div>
             </div>
           );

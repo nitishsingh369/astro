@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
+import { Reveal } from "@/components/Reveal";
 import hero from "@/assets/hero-cosmic.jpg";
 
 export const Route = createFileRoute("/about")({
@@ -72,11 +73,13 @@ function About() {
       <section className="px-6 md:px-10 py-28">
         <h2 className="text-display text-[12vw] md:text-[8vw] mb-12">what we <span className="text-serif-italic">believe</span></h2>
         <div className="grid md:grid-cols-2 gap-6">
-          {values.map(v => (
-            <div key={v.t} className="rounded-2xl border-2 border-ink p-10" style={{ background: v.color }}>
-              <h3 className="text-display text-4xl text-ink">{v.t}</h3>
-              <p className="mt-3 text-ink/80">{v.d}</p>
-            </div>
+          {values.map((v, i) => (
+            <Reveal key={v.t} variant={i % 2 === 0 ? "left" : "right"} delay={i * 80} className="rounded-2xl border-2 border-ink p-10 hover:-translate-y-1 transition-transform duration-300" >
+              <div style={{ background: v.color }} className="-m-10 p-10 rounded-2xl">
+                <h3 className="text-display text-4xl text-ink">{v.t}</h3>
+                <p className="mt-3 text-ink/80">{v.d}</p>
+              </div>
+            </Reveal>
           ))}
         </div>
       </section>
@@ -84,15 +87,15 @@ function About() {
       <section className="bg-ink text-cream px-6 md:px-10 py-28">
         <h2 className="text-display text-[12vw] md:text-[8vw] mb-12">the <span className="text-serif-italic text-lime">constellation</span></h2>
         <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
-          {team.map(t => (
-            <div key={t.n} className="rounded-2xl border-2 border-cream/20 p-6 hover:border-lime transition">
+          {team.map((t, i) => (
+            <Reveal key={t.n} variant="up" delay={i * 100} className="rounded-2xl border-2 border-cream/20 p-6 hover:border-lime hover:-translate-y-2 transition-all duration-300">
               <div className="aspect-square rounded-xl mb-4 grid place-items-center text-display text-7xl text-ink" style={{ background: t.color }}>
                 {t.n.split(" ").map(w => w[0]).join("")}
               </div>
               <h3 className="text-display text-2xl">{t.n}</h3>
               <p className="text-sm opacity-70">{t.r}</p>
               <p className="text-serif-italic text-lime mt-2">{t.sign} ☉</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </section>
