@@ -42,8 +42,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Astrology Marketing — Studio for Astrologers" },
-      { name: "description", content: "Astrology Marketing is a creative studio crafting cinematic content, social strategy and performance campaigns for astrologers and spiritual brands." },
+      { title: "Lunara — Marketing Studio for Astrologers" },
+      { name: "description", content: "Lunara is a creative marketing studio crafting cinematic content, social strategy and performance campaigns for astrologers and spiritual brands." },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -92,10 +92,8 @@ function Header() {
           <StarBurst className="absolute -left-2 -top-2 h-16 w-16 wiggle" />
           <span className="relative text-display text-2xl text-ink pl-3">work</span>
         </Link>
-        <Link to="/" className="hidden md:flex items-baseline gap-1 text-ink hover:scale-105 transition">
-          <span className="text-display text-2xl lowercase">astrology</span>
-          <span className="text-serif-italic text-3xl">marketing</span>
-          <span className="text-coral text-2xl">*</span>
+        <Link to="/" className="hidden md:block text-serif-italic text-3xl text-ink hover:scale-105 transition">
+          lunara*
         </Link>
         <div className="flex items-center gap-3">
           <a href="#" aria-label="whatsapp" className="hidden md:grid h-11 w-11 place-items-center rounded-full bg-ink text-cream hover:bg-coral transition">
@@ -141,7 +139,7 @@ export function Footer() {
         </div>
         <div className="mt-20 grid gap-10 md:grid-cols-[2fr_1fr_1fr_1fr]">
           <div>
-            <div className="text-serif-italic text-5xl">astrology marketing*</div>
+            <div className="text-serif-italic text-5xl">lunara*</div>
             <p className="mt-4 max-w-sm text-sm opacity-70">
               A creative marketing studio building cosmic brands for modern astrologers, tarot readers and spiritual guides.
             </p>
@@ -172,14 +170,14 @@ export function Footer() {
           <div>
             <p className="text-xs uppercase tracking-widest opacity-60">Studio</p>
             <ul className="mt-4 space-y-2 opacity-80 text-sm">
-              <li>hello@astrologymarketing.studio</li>
+              <li>hello@lunara.studio</li>
               <li>+91 98765 43210</li>
               <li>Mumbai · Remote</li>
             </ul>
           </div>
         </div>
         <div className="mt-16 flex flex-col md:flex-row justify-between gap-4 border-t border-cream/15 pt-6 text-xs opacity-60">
-          <p>© 2026 Astrology Marketing Studio. All cosmic rights reserved.</p>
+          <p>© 2026 Lunara Studio. All cosmic rights reserved.</p>
           <p className="text-serif-italic text-base">written in the stars · built on earth</p>
         </div>
       </div>
@@ -192,7 +190,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <Header />
-      <main className="pt-36 md:pt-40">
+      <main className="pt-24">
         <Outlet />
       </main>
       <Footer />
