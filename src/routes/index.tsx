@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, MessageCircle } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import hero from "@/assets/hero-cosmic.jpg";
+import qrCode from "@/assets/qr.png";
 import work1 from "@/assets/work-1.jpg";
 import work2 from "@/assets/work-2.jpg";
 import work3 from "@/assets/work-3.jpg";
@@ -10,9 +11,9 @@ import work4 from "@/assets/work-4.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Lunara — Marketing for Astrologers" },
+      { title: "Astrology Marketing — Studio for Astrologers" },
       { name: "description", content: "Cinematic video, social strategy and performance marketing built exclusively for astrologers, tarot readers and spiritual creators." },
-      { property: "og:title", content: "Lunara — Marketing for Astrologers" },
+      { property: "og:title", content: "Astrology Marketing — Studio for Astrologers" },
       { property: "og:description", content: "We grow spiritual brands with cosmic creative." },
     ],
   }),
@@ -55,23 +56,45 @@ function Home() {
   return (
     <div>
       {/* HERO */}
-      <section className="relative px-6 md:px-10 pt-10 pb-16">
-        <div className="relative">
-          <Reveal as="h1" variant="up" duration={1000} className="text-display text-[18vw] md:text-[14vw] text-ink leading-[0.85]">
-            we make <span className="text-serif-italic">advertising</span>
-            <br/>
-            for the new <span className="relative inline-block">
-              <Smiley className="absolute -left-4 -top-4 md:-left-6 md:-top-6 w-14 h-14 md:w-20 md:h-20 float" />
-              cosmos
-              <svg viewBox="0 0 400 60" className="absolute -bottom-3 left-0 w-full" fill="none" stroke="var(--ink)" strokeWidth="3" aria-hidden>
-                <ellipse cx="200" cy="30" rx="195" ry="22" />
-              </svg>
-            </span>
-          </Reveal>
-          <Reveal variant="rotate" delay={200} duration={1000} className="absolute top-0 right-4 md:right-10 w-40 md:w-56">
-            <div className="relative wiggle">
-              <img src={hero} alt="astrologer" width={1600} height={1200} className="w-full aspect-[4/5] object-cover rounded-md border-2 border-ink shadow-[8px_8px_0_0_var(--ink)]" />
-              <Sticker color="var(--lime)" rotate={-8} className="absolute -bottom-3 -left-3">we make ads ✦</Sticker>
+      <section className="relative px-6 md:px-10 pt-6 pb-20">
+        <div className="grid gap-10 md:grid-cols-[1fr_320px] items-start">
+          <div className="relative">
+            <Reveal as="h1" variant="up" duration={1000} className="text-display text-[18vw] md:text-[13vw] text-ink leading-[0.85]">
+              we make <span className="text-serif-italic">advertising</span>
+              <br/>
+              for the new <span className="relative inline-block">
+                <Smiley className="absolute -left-4 -top-4 md:-left-6 md:-top-6 w-14 h-14 md:w-20 md:h-20 float" />
+                cosmos
+                <svg viewBox="0 0 400 60" className="absolute -bottom-3 left-0 w-full" fill="none" stroke="var(--ink)" strokeWidth="3" aria-hidden>
+                  <ellipse cx="200" cy="30" rx="195" ry="22" />
+                </svg>
+              </span>
+            </Reveal>
+            <Reveal variant="fade" delay={300} as="p" className="mt-10 max-w-xl text-lg md:text-xl text-ink/80">
+              A creative studio crafting cinematic content, social systems and performance ads — exclusively for <span className="text-serif-italic">astrologers</span>, tarot readers and spiritual brands.
+            </Reveal>
+            <Reveal variant="up" delay={500} className="mt-8 flex flex-wrap gap-3">
+              <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-ink text-cream px-6 py-3 text-sm uppercase font-semibold hover:bg-coral transition">
+                book a call <ArrowUpRight size={16} />
+              </Link>
+              <Link to="/services" className="inline-flex items-center gap-2 rounded-full border-2 border-ink px-6 py-3 text-sm uppercase font-semibold hover:bg-lime transition">
+                our services
+              </Link>
+            </Reveal>
+          </div>
+
+          {/* WhatsApp QR Card */}
+          <Reveal variant="rotate" delay={200} duration={900} className="justify-self-center md:justify-self-end w-full max-w-[320px]">
+            <div className="relative rounded-3xl bg-cream border-2 border-ink p-6 shadow-[8px_8px_0_0_var(--ink)]">
+              <div className="absolute -top-3 -right-3 grid h-12 w-12 place-items-center rounded-full bg-[#25D366] border-2 border-ink text-white wiggle">
+                <MessageCircle size={22} fill="white" />
+              </div>
+              <img src={qrCode} alt="WhatsApp QR code" width={512} height={512} className="w-full aspect-square object-contain" />
+              <h3 className="mt-4 text-display text-3xl text-ink">whatsapp us</h3>
+              <p className="mt-1 text-sm text-ink/70">Scan the QR code to chat with us via your smartphone.</p>
+              <a href="#" className="mt-4 inline-block text-ink font-semibold border-b-2 border-ink hover:text-coral hover:border-coral transition">
+                Chat via desktop
+              </a>
             </div>
           </Reveal>
         </div>
