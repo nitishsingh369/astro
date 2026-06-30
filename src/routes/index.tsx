@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
+import { Reveal } from "@/components/Reveal";
 import hero from "@/assets/hero-cosmic.jpg";
 import work1 from "@/assets/work-1.jpg";
 import work2 from "@/assets/work-2.jpg";
@@ -56,7 +57,7 @@ function Home() {
       {/* HERO */}
       <section className="relative px-6 md:px-10 pt-10 pb-16">
         <div className="relative">
-          <h1 className="text-display text-[18vw] md:text-[14vw] text-ink leading-[0.85]">
+          <Reveal as="h1" variant="up" duration={1000} className="text-display text-[18vw] md:text-[14vw] text-ink leading-[0.85]">
             we make <span className="text-serif-italic">advertising</span>
             <br/>
             for the new <span className="relative inline-block">
@@ -66,32 +67,33 @@ function Home() {
                 <ellipse cx="200" cy="30" rx="195" ry="22" />
               </svg>
             </span>
-          </h1>
-          <div className="absolute top-0 right-4 md:right-10 w-40 md:w-56 wiggle">
-            <div className="relative">
+          </Reveal>
+          <Reveal variant="rotate" delay={200} duration={1000} className="absolute top-0 right-4 md:right-10 w-40 md:w-56">
+            <div className="relative wiggle">
               <img src={hero} alt="astrologer" width={1600} height={1200} className="w-full aspect-[4/5] object-cover rounded-md border-2 border-ink shadow-[8px_8px_0_0_var(--ink)]" />
               <Sticker color="var(--lime)" rotate={-8} className="absolute -bottom-3 -left-3">we make ads ✦</Sticker>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* WANNA BE */}
       <section className="relative px-6 md:px-10 py-24 overflow-hidden">
         <div className="relative max-w-6xl mx-auto text-center">
-          <Squiggle className="mx-auto w-64 text-ink mb-6" />
-          <h2 className="text-display text-[16vw] md:text-[10vw] leading-[0.9]">
+          <Reveal variant="zoom"><Squiggle className="mx-auto w-64 text-ink mb-6" /></Reveal>
+          <Reveal as="h2" variant="up" duration={900} className="text-display text-[16vw] md:text-[10vw] leading-[0.9]">
             we wanna be<br/>
             <span className="text-serif-italic">where the stars are</span>
-          </h2>
-          <p className="mt-12 max-w-2xl mx-auto text-lg md:text-xl">
+          </Reveal>
+          <Reveal variant="fade" delay={200} as="p" className="mt-12 max-w-2xl mx-auto text-lg md:text-xl">
             Audiences are more scattered <span className="text-serif-italic">and</span> more reachable than ever.
             We help astrologers, tarot readers and spiritual brands become leaders on the channels of the new mainstream.
-          </p>
-          <Sticker color="var(--lime)" rotate={-6} className="absolute -left-2 top-20 hidden md:inline-block">✦ thumbs up</Sticker>
-          <Sticker color="var(--pink)" rotate={8} className="absolute right-0 bottom-20 hidden md:inline-block">★ magic dust</Sticker>
+          </Reveal>
+          <Sticker color="var(--lime)" rotate={-6} className="absolute -left-2 top-20 hidden md:inline-block float">✦ thumbs up</Sticker>
+          <Sticker color="var(--pink)" rotate={8} className="absolute right-0 bottom-20 hidden md:inline-block wiggle">★ magic dust</Sticker>
         </div>
       </section>
+
 
       {/* MARQUEE */}
       <section className="border-y-2 border-ink overflow-hidden bg-lime py-5">
@@ -155,15 +157,15 @@ function Home() {
             { n: "04", t: "Content Strategy", d: "Story pillars, content calendars and hooks tuned to your zodiac niche.", color: "var(--pink)" },
             { n: "05", t: "Profile Management", d: "We run the whole show — DMs, posts, comments — so you can focus on the stars.", color: "var(--lilac)" },
             { n: "06", t: "Brand Identity", d: "Logo, palette, type and motion systems with a celestial soul.", color: "var(--teal)" },
-          ].map(s => (
-            <div key={s.n} className="rounded-2xl border-2 border-cream/15 p-8 hover:border-lime transition group">
+          ].map((s, i) => (
+            <Reveal key={s.n} variant="up" delay={i * 80} className="rounded-2xl border-2 border-cream/15 p-8 hover:border-lime hover:-translate-y-1 transition-all duration-300 group">
               <div className="flex items-center justify-between">
                 <span className="text-xs opacity-60">{s.n}</span>
                 <span className="h-3 w-3 rounded-full" style={{ background: s.color }} />
               </div>
               <h3 className="text-display text-4xl mt-8">{s.t}</h3>
               <p className="mt-3 text-sm opacity-75">{s.d}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </section>
@@ -185,13 +187,13 @@ function Home() {
             { img: work3, span: "md:col-span-5", title: "celestial atlas", year: "2025", color: "var(--blue)", rot: -2 },
             { img: work4, span: "md:col-span-7", title: "reels of the seer", year: "2025", color: "var(--pink)", rot: 3 },
           ].map((p, i) => (
-            <figure key={i} className={`${p.span} group relative`}>
+            <Reveal as="figure" key={i} variant={i % 2 === 0 ? "left" : "right"} delay={i * 100} className={`${p.span} group relative`}>
               <div className="overflow-hidden rounded-2xl border-2 border-ink">
                 <img src={p.img} alt={p.title} loading="lazy" width={1024} height={1280} className="aspect-[5/6] w-full object-cover transition duration-700 group-hover:scale-105" />
               </div>
               <Sticker color={p.color} rotate={p.rot} className="absolute -bottom-3 left-6">{p.title}</Sticker>
               <span className="absolute top-4 right-4 bg-ink text-cream text-xs px-3 py-1 rounded-full">{p.year}</span>
-            </figure>
+            </Reveal>
           ))}
         </div>
       </section>
@@ -204,11 +206,11 @@ function Home() {
             { k: "120M", v: "organic views" },
             { k: "4.2x", v: "average ROAS" },
             { k: "∞", v: "cosmic curiosity" },
-          ].map(s => (
-            <div key={s.v}>
+          ].map((s, i) => (
+            <Reveal key={s.v} variant="zoom" delay={i * 120}>
               <div className="text-display text-7xl md:text-8xl">{s.k}</div>
               <p className="mt-2 text-sm uppercase tracking-widest">{s.v}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </section>

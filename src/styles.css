@@ -132,3 +132,27 @@
 @utility float {
   animation: float 5s ease-in-out infinite;
 }
+
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+
+@utility spin-slow {
+  animation: spin-slow 22s linear infinite;
+}
+
+@keyframes blob {
+  0%, 100% { border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%; transform: translate(0,0) rotate(0deg); }
+  33% { border-radius: 67% 33% 47% 53% / 37% 62% 38% 63%; transform: translate(12px,-10px) rotate(8deg); }
+  66% { border-radius: 39% 61% 36% 64% / 55% 33% 67% 45%; transform: translate(-10px,8px) rotate(-6deg); }
+}
+
+@utility blob {
+  animation: blob 14s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wiggle, .float, .marquee, .spin-slow, .blob { animation: none !important; }
+  html { scroll-behavior: auto !important; }
+}
+
