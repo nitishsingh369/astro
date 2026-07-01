@@ -95,8 +95,23 @@ function WhatsAppIcon({ size = 20 }: { size?: number }) {
 function Header() {
   const [open, setOpen] = useState(false);
   const [qrOpen, setQrOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    let last = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      setScrolled(y > 20);
+      if (y > last && y > 120) setHidden(true);
+      else setHidden(false);
+      last = y;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
   return (
-    <header className="fixed top-0 left-0 right-0 z-50">
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-500 ${hidden ? "-translate-y-full" : "translate-y-0"} ${scrolled ? "bg-cream/85 backdrop-blur-md border-b border-ink/10" : ""}`}>
+
       <div className="flex items-center justify-between px-6 py-5 md:px-10">
         <Link to="/" className="relative inline-flex items-center">
           <StarBurst className="absolute -left-2 -top-2 h-16 w-16 wiggle" />
