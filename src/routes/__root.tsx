@@ -3,7 +3,8 @@ import {
   Outlet, Link, createRootRouteWithContext, useRouter, HeadContent, Scripts,
 } from "@tanstack/react-router";
 import { useEffect, useState, type ReactNode } from "react";
-import { Menu, X, Instagram, Youtube, Facebook, Linkedin, Twitter, MessageCircle } from "lucide-react";
+import { Menu, X, Instagram, Youtube, Facebook, Linkedin, Twitter } from "lucide-react";
+import qrImg from "@/assets/qr.png";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -83,8 +84,17 @@ function StarBurst({ className = "", color = "var(--coral)" }: { className?: str
   );
 }
 
+function WhatsAppIcon({ size = 20 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+      <path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.2-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.5-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5s-.7-1.7-1-2.3c-.3-.6-.5-.5-.7-.5H7.7c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5 4.5 1.7.7 2.4.8 3.3.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.4.8 3.1 1.3 4.8 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.3.9.9-3.2-.2-.3C3.8 15 3.3 13.5 3.3 12c0-4.8 3.9-8.7 8.7-8.7s8.7 3.9 8.7 8.7-3.9 8-8.7 8z"/>
+    </svg>
+  );
+}
+
 function Header() {
   const [open, setOpen] = useState(false);
+  const [qrOpen, setQrOpen] = useState(false);
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       <div className="flex items-center justify-between px-6 py-5 md:px-10">
@@ -92,13 +102,13 @@ function Header() {
           <StarBurst className="absolute -left-2 -top-2 h-16 w-16 wiggle" />
           <span className="relative text-display text-2xl text-ink pl-3">work</span>
         </Link>
-        <Link to="/" className="hidden md:block text-serif-italic text-3xl text-ink hover:scale-105 transition">
-          lunara*
+        <Link to="/" className="hidden md:block text-serif-italic text-3xl text-ink hover:scale-105 transition whitespace-nowrap">
+          astrology marketing*
         </Link>
         <div className="flex items-center gap-3">
-          <a href="#" aria-label="whatsapp" className="hidden md:grid h-11 w-11 place-items-center rounded-full bg-ink text-cream hover:bg-coral transition">
-            <MessageCircle size={18} />
-          </a>
+          <button onClick={() => setQrOpen(true)} aria-label="whatsapp" className="grid h-11 w-11 place-items-center rounded-full bg-[#25D366] text-white hover:scale-110 transition shadow-[3px_3px_0_0_var(--ink)] border-2 border-ink">
+            <WhatsAppIcon size={20} />
+          </button>
           <button className="md:hidden text-ink" onClick={() => setOpen(!open)} aria-label="menu">
             {open ? <X /> : <Menu />}
           </button>
@@ -123,6 +133,21 @@ function Header() {
           {NAV.map(n => (
             <Link key={n.to} to={n.to} onClick={() => setOpen(false)} className="text-display text-4xl">{n.label}</Link>
           ))}
+        </div>
+      )}
+      {qrOpen && (
+        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-ink/50 backdrop-blur-sm p-6" onClick={() => setQrOpen(false)}>
+          <div className="relative bg-cream rounded-3xl p-8 md:p-10 max-w-sm w-full border-2 border-ink shadow-[8px_8px_0_0_var(--ink)]" onClick={(e) => e.stopPropagation()}>
+            <button aria-label="close" onClick={() => setQrOpen(false)} className="absolute -top-3 -right-3 grid h-10 w-10 place-items-center rounded-full bg-ink text-cream border-2 border-ink hover:bg-coral transition">
+              <X size={18} />
+            </button>
+            <div className="absolute -top-4 -left-4 grid h-14 w-14 place-items-center rounded-full bg-[#25D366] border-2 border-ink text-white wiggle">
+              <WhatsAppIcon size={22} />
+            </div>
+            <img src={qrImg} alt="Scan to WhatsApp us" className="w-full aspect-square object-contain rounded-xl border-2 border-ink" />
+            <h3 className="mt-6 text-display text-3xl text-ink text-center">whatsapp us</h3>
+            <p className="mt-2 text-center text-ink/80">Scan the QR code to chat with us via your smartphone.</p>
+          </div>
         </div>
       )}
     </header>
