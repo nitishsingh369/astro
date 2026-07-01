@@ -21,6 +21,14 @@ export const Route = createFileRoute("/")({
 
 const marqueeWords = ["video editing", "social media", "performance ads", "content strategy", "profile management", "brand identity"];
 
+function StarBurst({ className = "", color = "var(--coral)" }: { className?: string; color?: string }) {
+  return (
+    <svg viewBox="0 0 100 100" className={className} fill={color} aria-hidden>
+      <path d="M50 0 L58 32 L92 24 L66 48 L100 56 L66 60 L86 92 L54 70 L50 100 L46 70 L14 92 L34 60 L0 56 L34 48 L8 24 L42 32 Z" />
+    </svg>
+  );
+}
+
 function Sticker({ children, color, rotate = -4, className = "" }: { children: React.ReactNode; color: string; rotate?: number; className?: string }) {
   return (
     <span
