@@ -55,7 +55,20 @@ function Home() {
   return (
     <div>
       {/* HERO */}
-      <section className="relative px-6 md:px-10 pt-10 pb-16">
+      <section className="relative px-6 md:px-10 pt-10 pb-24 overflow-hidden">
+        {/* ambient blobs */}
+        <div aria-hidden className="pointer-events-none absolute -top-20 -left-24 h-96 w-96 rounded-full blur-3xl opacity-40" style={{ background: "var(--lilac)" }} />
+        <div aria-hidden className="pointer-events-none absolute top-40 right-1/3 h-80 w-80 rounded-full blur-3xl opacity-30" style={{ background: "var(--pink)" }} />
+
+        {/* top ticker */}
+        <Reveal variant="fade" className="mb-6 flex flex-wrap items-center gap-3 text-sm">
+          <span className="inline-flex items-center gap-2 rounded-full bg-ink text-cream px-4 py-1.5">
+            <span className="h-2 w-2 rounded-full bg-lime animate-pulse" /> booking · winter '26
+          </span>
+          <Sticker color="var(--pink)" rotate={-3}>✦ trusted by 80+ astrologers</Sticker>
+          <Sticker color="var(--blue)" rotate={2} className="text-cream" >★ 4.9 avg client rating</Sticker>
+        </Reveal>
+
         <div className="relative">
           <Reveal as="h1" variant="up" duration={1000} className="text-display text-[18vw] md:text-[14vw] text-ink leading-[0.85]">
             we make <span className="text-serif-italic">advertising</span>
@@ -68,13 +81,65 @@ function Home() {
               </svg>
             </span>
           </Reveal>
-          <Reveal variant="rotate" delay={200} duration={1000} className="absolute top-0 right-4 md:right-10 w-40 md:w-56">
-            <div className="relative wiggle">
-              <img src={hero} alt="astrologer" width={1600} height={1200} className="w-full aspect-[4/5] object-cover rounded-md border-2 border-ink shadow-[8px_8px_0_0_var(--ink)]" />
-              <Sticker color="var(--lime)" rotate={-8} className="absolute -bottom-3 -left-3">we make ads ✦</Sticker>
+
+          {/* hero portrait cluster */}
+          <Reveal variant="rotate" delay={200} duration={1000} className="absolute top-0 right-4 md:right-10 w-40 md:w-64">
+            <div className="relative">
+              {/* orbiting starburst */}
+              <StarBurst className="absolute -top-8 -right-8 h-20 w-20 spin-slow" color="var(--coral)" />
+              {/* back polaroid */}
+              <div className="absolute -left-6 top-4 w-full aspect-[4/5] rounded-md border-2 border-ink bg-lime rotate-[-8deg] shadow-[6px_6px_0_0_var(--ink)]" />
+              <div className="relative wiggle">
+                <img src={hero} alt="astrologer" width={1600} height={1200} className="relative w-full aspect-[4/5] object-cover rounded-md border-2 border-ink shadow-[10px_10px_0_0_var(--ink)]" />
+                <Sticker color="var(--lime)" rotate={-8} className="absolute -bottom-3 -left-3">we make ads ✦</Sticker>
+                <Sticker color="var(--cream)" rotate={6} className="absolute -top-4 -right-2 border-2 border-ink">new drop*</Sticker>
+              </div>
+              {/* rotating badge */}
+              <div className="absolute -bottom-10 -right-4 md:-right-10 h-24 w-24 md:h-28 md:w-28 grid place-items-center">
+                <svg viewBox="0 0 100 100" className="absolute inset-0 spin-slow" aria-hidden>
+                  <defs>
+                    <path id="circ" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0" />
+                  </defs>
+                  <text fontSize="11" fontWeight="600" letterSpacing="3" fill="var(--ink)">
+                    <textPath href="#circ">✦ COSMIC · CREATIVE · STUDIO · SINCE 2020 </textPath>
+                  </text>
+                </svg>
+                <span className="relative text-2xl">✦</span>
+              </div>
             </div>
           </Reveal>
         </div>
+
+        {/* sub row */}
+        <div className="relative mt-14 grid md:grid-cols-[1.4fr_1fr] gap-10 items-end">
+          <Reveal variant="up" delay={300} as="p" className="max-w-xl text-lg md:text-2xl leading-snug">
+            A boutique studio scripting, shooting and scaling content for
+            <span className="text-serif-italic"> astrologers, tarot readers &amp; spiritual guides</span> — from first reel to first million.
+          </Reveal>
+          <Reveal variant="up" delay={400} className="flex flex-wrap gap-3">
+            <Link to="/contact" className="group inline-flex items-center gap-2 rounded-full bg-ink text-cream px-6 py-4 font-medium hover:bg-coral transition">
+              start your chart <ArrowUpRight size={18} className="group-hover:rotate-45 transition" />
+            </Link>
+            <Link to="/work" className="inline-flex items-center gap-2 rounded-full bg-cream border-2 border-ink px-6 py-4 font-medium hover:bg-lime transition">
+              see the work
+            </Link>
+          </Reveal>
+        </div>
+
+        {/* mini stats */}
+        <Reveal variant="fade" delay={500} className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4">
+          {[
+            { k: "120M+", v: "organic views" },
+            { k: "80+", v: "brands guided" },
+            { k: "4.2x", v: "average ROAS" },
+            { k: "12", v: "zodiac niches" },
+          ].map((s) => (
+            <div key={s.v} className="rounded-2xl border-2 border-ink bg-cream/50 backdrop-blur px-5 py-4">
+              <div className="text-display text-4xl">{s.k}</div>
+              <div className="text-xs uppercase tracking-widest opacity-70 mt-1">{s.v}</div>
+            </div>
+          ))}
+        </Reveal>
       </section>
 
       {/* WANNA BE */}
