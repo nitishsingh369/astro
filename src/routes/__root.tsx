@@ -230,7 +230,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <Header />
-      <main className="pt-24 overflow-x-clip">
+      <main className="pt-24">
         <Outlet />
       </main>
       <Footer />
