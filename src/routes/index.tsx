@@ -105,7 +105,7 @@ function Home() {
             </div>
           </Reveal>
 
-          <Reveal as="h1" variant="up" duration={1000} className="order-2 md:order-none text-display text-[19vw] sm:text-[16vw] md:text-[14vw] text-ink leading-[0.85]">
+          <Reveal as="h1" variant="up" duration={1000} className="order-2 md:order-none text-display text-ink leading-[0.85] max-w-full break-words [font-size:clamp(3rem,14vw,7rem)] md:[font-size:clamp(4rem,10.5vw,10rem)]">
             we make <span className="text-serif-italic">advertising</span>
             <br/>
             for the new <span className="relative inline-block">
