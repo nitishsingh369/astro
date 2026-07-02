@@ -105,20 +105,17 @@ function Home() {
             </div>
           </Reveal>
 
-          <Reveal as="h1" variant="up" duration={1000} className="order-2 md:order-none text-display text-ink leading-[0.85] max-w-full break-words md:max-w-[64%] lg:max-w-[62%] [font-size:clamp(3rem,13vw,6.5rem)] md:[font-size:clamp(3.5rem,8.5vw,8.5rem)]">
+          <Reveal as="h1" variant="up" duration={1000} className="order-2 md:order-none text-display text-[19vw] sm:text-[16vw] md:text-[14vw] text-ink leading-[0.85]">
             we make <span className="text-serif-italic">advertising</span>
             <br/>
-            for the <span className="relative inline-block">
-              <Smiley className="absolute -left-3 -top-3 md:-left-5 md:-top-5 w-8 h-8 md:w-14 md:h-14 float" />
-              new
-            </span> <span className="relative inline-block">
+            for the new <span className="relative inline-block">
+              <Smiley className="absolute -left-3 -top-3 md:-left-6 md:-top-6 w-10 h-10 md:w-20 md:h-20 float" />
               cosmos
               <svg viewBox="0 0 400 60" className="absolute -bottom-2 left-0 w-full" fill="none" stroke="var(--ink)" strokeWidth="3" aria-hidden>
                 <ellipse cx="200" cy="30" rx="195" ry="22" />
               </svg>
             </span>
           </Reveal>
-
         </div>
 
         {/* sub row */}
