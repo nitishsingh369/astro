@@ -105,11 +105,11 @@ function Home() {
             </div>
           </Reveal>
 
-          <Reveal as="h1" variant="up" duration={1000} className="order-2 md:order-none text-display text-[19vw] sm:text-[16vw] md:text-[14vw] text-ink leading-[0.85]">
+          <Reveal as="h1" variant="up" duration={1000} className="order-2 md:order-none text-display text-[13vw] sm:text-[14vw] md:text-[14vw] text-ink leading-[0.85] break-words">
             we make <span className="text-serif-italic">advertising</span>
             <br/>
             for the new <span className="relative inline-block">
-              <Smiley className="absolute -left-3 -top-3 md:-left-6 md:-top-6 w-10 h-10 md:w-20 md:h-20 float" />
+              <Smiley className="absolute -left-3 -top-3 md:-left-6 md:-top-6 w-8 h-8 md:w-20 md:h-20 float" />
               cosmos
               <svg viewBox="0 0 400 60" className="absolute -bottom-2 left-0 w-full" fill="none" stroke="var(--ink)" strokeWidth="3" aria-hidden>
                 <ellipse cx="200" cy="30" rx="195" ry="22" />
