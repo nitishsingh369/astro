@@ -8,7 +8,7 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact — Astrology Marketing" },
-      { name: "description", content: "Tell us about your astrology brand. We'll respond within one moon cycle (24 hours)." },
+      { name: "description", content: "Tell us about your astrology brand. We respond within 24–72 working hours." },
       { property: "og:title", content: "Contact — Astrology Marketing" },
       { property: "og:description", content: "Start a project with Astrology Marketing." },
     ],
@@ -84,15 +84,15 @@ function Contact() {
             </div>
           </div>
           <div className="border-l-4 border-ink pl-6 text-serif-italic text-2xl">
-            we respond within one moon cycle — usually under 24 hours.
+            we reply to every transmission within 24–72 working hours.
           </div>
         </div>
 
         <form className="md:col-span-7 rounded-2xl border-2 border-ink p-8 md:p-10 bg-cream" onSubmit={onSubmit}>
           {sent ? (
             <div className="text-center py-16">
-              <div className="text-display text-6xl">message <span className="text-serif-italic">received ✦</span></div>
-              <p className="mt-6 text-lg">Thank you. We'll be in touch before the next full moon.</p>
+              <div className="text-display text-5xl md:text-6xl">thank you <span className="text-serif-italic">✦</span></div>
+              <p className="mt-6 text-lg">Your message has been received. We'll contact you within <strong>24–72 working hours</strong>.</p>
             </div>
           ) : (
             <div className="space-y-6">
