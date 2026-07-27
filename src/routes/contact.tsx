@@ -91,8 +91,8 @@ function Contact() {
         <form className="md:col-span-7 rounded-2xl border-2 border-ink p-8 md:p-10 bg-cream" onSubmit={onSubmit}>
           {sent ? (
             <div className="text-center py-16">
-              <div className="text-display text-6xl">message <span className="text-serif-italic">received ✦</span></div>
-              <p className="mt-6 text-lg">Thank you. We'll be in touch before the next full moon.</p>
+              <div className="text-display text-5xl md:text-6xl">thank you <span className="text-serif-italic">✦</span></div>
+              <p className="mt-6 text-lg">Your message has been received. We'll contact you within <strong>24–72 working hours</strong>.</p>
             </div>
           ) : (
             <div className="space-y-6">
