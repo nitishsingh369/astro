@@ -18,6 +18,35 @@ export const Route = createFileRoute("/contact")({
 
 function Contact() {
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const send = useServerFn(sendContactMessage);
+
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const fd = new FormData(e.currentTarget);
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await send({
+        data: {
+          name: String(fd.get("name") ?? ""),
+          email: String(fd.get("email") ?? ""),
+          brand: String(fd.get("brand") ?? ""),
+          sign: String(fd.get("sign") ?? ""),
+          service: String(fd.get("service") ?? ""),
+          msg: String(fd.get("msg") ?? ""),
+        },
+      });
+      if (res.ok) setSent(true);
+      else setError(res.error ?? "Something went wrong. Please email info@astrologymarketing.in");
+    } catch {
+      setError("Something went wrong. Please email info@astrologymarketing.in");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div>
       <section className="px-6 md:px-10 pt-10 pb-12 text-center">
@@ -92,11 +121,11 @@ function Contact() {
   );
 }
 
-function Field({ label, name, type = "text" }: { label: string; name: string; type?: string }) {
+function Field({ label, name, type = "text", required }: { label: string; name: string; type?: string; required?: boolean }) {
   return (
     <div>
       <label className="text-xs uppercase tracking-widest">{label}</label>
-      <input type={type} name={name} className="mt-2 w-full bg-transparent border-b-2 border-ink focus:border-coral outline-none py-3"/>
+      <input type={type} name={name} required={required} maxLength={255} className="mt-2 w-full bg-transparent border-b-2 border-ink focus:border-coral outline-none py-3"/>
     </div>
   );
 }
