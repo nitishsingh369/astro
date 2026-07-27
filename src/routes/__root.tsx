@@ -110,6 +110,7 @@ function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
   return (
+    <>
     <header className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-500 ${hidden ? "-translate-y-full" : "translate-y-0"} ${scrolled ? "bg-cream/85 backdrop-blur-md border-b border-ink/10" : ""}`}>
 
       <div className="flex items-center justify-between px-6 py-5 md:px-10">
@@ -150,22 +151,23 @@ function Header() {
           ))}
         </div>
       )}
-      {qrOpen && (
-        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-ink/50 backdrop-blur-sm p-6" onClick={() => setQrOpen(false)}>
-          <div className="relative bg-cream rounded-3xl p-8 md:p-10 max-w-sm w-full border-2 border-ink shadow-[8px_8px_0_0_var(--ink)]" onClick={(e) => e.stopPropagation()}>
-            <button aria-label="close" onClick={() => setQrOpen(false)} className="absolute -top-3 -right-3 grid h-10 w-10 place-items-center rounded-full bg-ink text-cream border-2 border-ink hover:bg-coral transition">
-              <X size={18} />
-            </button>
-            <div className="absolute -top-4 -left-4 grid h-14 w-14 place-items-center rounded-full bg-[#25D366] border-2 border-ink text-white wiggle">
-              <WhatsAppIcon size={22} />
-            </div>
-            <img src={qrImg} alt="Scan to WhatsApp us" className="w-full aspect-square object-contain rounded-xl border-2 border-ink" />
-            <h3 className="mt-6 text-display text-3xl text-ink text-center">whatsapp us</h3>
-            <p className="mt-2 text-center text-ink/80">Scan the QR code to chat with us via your smartphone.</p>
-          </div>
-        </div>
-      )}
     </header>
+    {qrOpen && (
+      <div className="fixed inset-0 z-[100] flex items-center justify-center overflow-y-auto bg-ink/60 backdrop-blur-sm p-4 sm:p-6" onClick={() => setQrOpen(false)}>
+        <div className="relative my-auto bg-cream rounded-3xl p-6 sm:p-8 w-full max-w-[20rem] sm:max-w-sm border-2 border-ink shadow-[8px_8px_0_0_var(--ink)]" onClick={(e) => e.stopPropagation()}>
+          <button aria-label="close" onClick={() => setQrOpen(false)} className="absolute -top-3 -right-3 grid h-10 w-10 place-items-center rounded-full bg-ink text-cream border-2 border-ink hover:bg-coral transition">
+            <X size={18} />
+          </button>
+          <div className="absolute -top-4 -left-4 grid h-12 w-12 place-items-center rounded-full bg-[#25D366] border-2 border-ink text-white wiggle">
+            <WhatsAppIcon size={20} />
+          </div>
+          <img src={qrImg} alt="Scan to WhatsApp us" className="w-full aspect-square object-contain rounded-xl border-2 border-ink" />
+          <h3 className="mt-5 text-display text-2xl sm:text-3xl text-ink text-center">whatsapp us</h3>
+          <p className="mt-2 text-center text-sm text-ink/80">Scan the QR code to chat with us via your smartphone.</p>
+        </div>
+      </div>
+    )}
+    </>
   );
 }
 
