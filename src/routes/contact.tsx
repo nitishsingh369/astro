@@ -5,10 +5,10 @@ import { Instagram, Youtube, Facebook, Linkedin, Twitter, Mail, Phone, MapPin, A
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Lunara Studio" },
+      { title: "Contact — Astrology Marketing" },
       { name: "description", content: "Tell us about your astrology brand. We'll respond within one moon cycle (24 hours)." },
-      { property: "og:title", content: "Contact — Lunara Studio" },
-      { property: "og:description", content: "Start a project with Lunara." },
+      { property: "og:title", content: "Contact — Astrology Marketing" },
+      { property: "og:description", content: "Start a project with Astrology Marketing." },
     ],
   }),
   component: Contact,
@@ -31,7 +31,7 @@ function Contact() {
           <div className="rounded-2xl border-2 border-ink p-8 bg-pink">
             <p className="text-xs uppercase tracking-widest mb-4">Studio</p>
             <ul className="space-y-3 text-lg text-ink">
-              <li className="flex gap-3 items-center"><Mail size={18}/> hello@lunara.studio</li>
+              <li className="flex gap-3 items-center"><Mail size={18}/> info@astrologymarketing.in</li>
               <li className="flex gap-3 items-center"><Phone size={18}/> +91 98765 43210</li>
               <li className="flex gap-3 items-center"><MessageCircle size={18}/> WhatsApp us</li>
               <li className="flex gap-3 items-center"><MapPin size={18}/> Bandra West, Mumbai</li>

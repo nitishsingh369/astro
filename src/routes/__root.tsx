@@ -43,8 +43,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lunara — Marketing Studio for Astrologers" },
-      { name: "description", content: "Lunara is a creative marketing studio crafting cinematic content, social strategy and performance campaigns for astrologers and spiritual brands." },
+      { title: "Astrology Marketing — Marketing Studio for Astrologers" },
+      { name: "description", content: "Astrology Marketing is a creative marketing studio crafting cinematic content, social strategy and performance campaigns for astrologers and spiritual brands." },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -210,14 +210,14 @@ export function Footer() {
           <div>
             <p className="text-xs uppercase tracking-widest opacity-60">Studio</p>
             <ul className="mt-4 space-y-2 opacity-80 text-sm">
-              <li>hello@lunara.studio</li>
+              <li>info@astrologymarketing.in</li>
               <li>+91 98765 43210</li>
               <li>Mumbai · Remote</li>
             </ul>
           </div>
         </div>
         <div className="mt-16 flex flex-col md:flex-row justify-between gap-4 border-t border-cream/15 pt-6 text-xs opacity-60">
-          <p>© 2026 Lunara Studio. All cosmic rights reserved.</p>
+          <p>© 2026 Astrology Marketing. All cosmic rights reserved.</p>
           <p className="text-serif-italic text-base">written in the stars · built on earth</p>
         </div>
       </div>

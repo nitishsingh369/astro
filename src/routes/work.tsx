@@ -10,9 +10,9 @@ import hero from "@/assets/hero-cosmic.jpg";
 export const Route = createFileRoute("/work")({
   head: () => ({
     meta: [
-      { title: "Work — Lunara Studio" },
+      { title: "Work — Astrology Marketing" },
       { name: "description", content: "Selected campaigns, brand films and social systems we've built for astrologers and spiritual creators." },
-      { property: "og:title", content: "Work — Lunara Studio" },
+      { property: "og:title", content: "Work — Astrology Marketing" },
       { property: "og:description", content: "Selected campaigns for the modern mystic." },
     ],
   }),

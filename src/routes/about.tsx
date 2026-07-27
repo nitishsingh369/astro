@@ -6,9 +6,9 @@ import hero from "@/assets/hero-cosmic.jpg";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Lunara Studio" },
-      { name: "description", content: "Lunara is a niche creative studio of strategists, editors and storytellers serving the global astrology community." },
-      { property: "og:title", content: "About — Lunara Studio" },
+      { title: "About — Astrology Marketing" },
+      { name: "description", content: "Astrology Marketing is a niche creative studio of strategists, editors and storytellers serving the global astrology community." },
+      { property: "og:title", content: "About — Astrology Marketing" },
       { property: "og:description", content: "We exist where commerce meets the cosmos." },
     ],
   }),
@@ -64,7 +64,7 @@ function About() {
           </div>
           <div className="md:col-span-8 space-y-6 text-xl md:text-2xl">
             <p>The astrology industry is exploding. Millions search their birth chart every day, yet most astrologer brands still look — and sound — the same.</p>
-            <p>Lunara was founded to change that. We bring the rigour of a performance agency, the eye of a fashion editorial, and the empathy of a longtime believer.</p>
+            <p>Astrology Marketing was founded to change that. We bring the rigour of a performance agency, the eye of a fashion editorial, and the empathy of a longtime believer.</p>
             <p className="text-serif-italic text-3xl md:text-4xl">our mission: make spiritual practitioners impossible to ignore.</p>
           </div>
         </div>

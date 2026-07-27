@@ -10,9 +10,9 @@ import work4 from "@/assets/work-4.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Lunara — Marketing for Astrologers" },
+      { title: "Astrology Marketing — Marketing for Astrologers" },
       { name: "description", content: "Cinematic video, social strategy and performance marketing built exclusively for astrologers, tarot readers and spiritual creators." },
-      { property: "og:title", content: "Lunara — Marketing for Astrologers" },
+      { property: "og:title", content: "Astrology Marketing — Marketing for Astrologers" },
       { property: "og:description", content: "We grow spiritual brands with cosmic creative." },
     ],
   }),

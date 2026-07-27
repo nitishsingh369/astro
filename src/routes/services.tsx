@@ -5,9 +5,9 @@ import { Reveal } from "@/components/Reveal";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services — Lunara Studio" },
+      { title: "Services — Astrology Marketing" },
       { name: "description", content: "Video editing, social media, performance marketing, content strategy and profile management — purpose-built for astrologers." },
-      { property: "og:title", content: "Services — Lunara Studio" },
+      { property: "og:title", content: "Services — Astrology Marketing" },
       { property: "og:description", content: "Six disciplines, one cosmic marketing engine for spiritual brands." },
     ],
   }),
