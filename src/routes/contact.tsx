@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
-import { Instagram, Youtube, Facebook, Linkedin, Twitter, Mail, Phone, MapPin, ArrowUpRight, MessageCircle } from "lucide-react";
+import { Instagram, Youtube, Facebook, Linkedin, Twitter, Mail, MapPin, ArrowUpRight, MessageCircle } from "lucide-react";
+import { sendContactMessage } from "@/lib/contact.functions";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -57,7 +59,7 @@ function Contact() {
           </div>
         </div>
 
-        <form className="md:col-span-7 rounded-2xl border-2 border-ink p-8 md:p-10 bg-cream" onSubmit={(e) => { e.preventDefault(); setSent(true); }}>
+        <form className="md:col-span-7 rounded-2xl border-2 border-ink p-8 md:p-10 bg-cream" onSubmit={onSubmit}>
           {sent ? (
             <div className="text-center py-16">
               <div className="text-display text-6xl">message <span className="text-serif-italic">received ✦</span></div>
@@ -66,8 +68,8 @@ function Contact() {
           ) : (
             <div className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
-                <Field label="Your name" name="name" />
-                <Field label="Email" name="email" type="email" />
+                <Field label="Your name" name="name" required />
+                <Field label="Email" name="email" type="email" required />
               </div>
               <div className="grid md:grid-cols-2 gap-6">
                 <Field label="Brand / Handle" name="brand" />
@@ -76,10 +78,11 @@ function Contact() {
               <SelectField label="What do you need?" name="service" options={["Video Editing", "Social Media", "Performance Ads", "Content Strategy", "Profile Management", "Brand Identity", "Everything"]} />
               <div>
                 <label className="text-xs uppercase tracking-widest">Tell us your story</label>
-                <textarea name="msg" rows={5} className="mt-2 w-full bg-transparent border-b-2 border-ink focus:border-coral outline-none py-3 resize-none" placeholder="What are you building?"/>
+                <textarea name="msg" rows={5} required maxLength={2000} className="mt-2 w-full bg-transparent border-b-2 border-ink focus:border-coral outline-none py-3 resize-none" placeholder="What are you building?"/>
               </div>
-              <button className="inline-flex items-center gap-3 rounded-full bg-ink px-8 py-4 text-cream font-medium hover:bg-coral transition">
-                send transmission <ArrowUpRight size={18}/>
+              {error && <p className="text-sm text-coral">{error}</p>}
+              <button disabled={loading} className="inline-flex items-center gap-3 rounded-full bg-ink px-8 py-4 text-cream font-medium hover:bg-coral transition disabled:opacity-60">
+                {loading ? "sending…" : "send transmission"} <ArrowUpRight size={18}/>
               </button>
             </div>
           )}
