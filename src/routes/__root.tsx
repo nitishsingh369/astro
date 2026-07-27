@@ -179,7 +179,8 @@ export function Footer() {
         </div>
         <div className="mt-20 grid gap-10 md:grid-cols-[2fr_1fr_1fr_1fr]">
           <div>
-            <div className="text-serif-italic text-5xl">lunara*</div>
+            <div className="text-serif-italic text-5xl">astrology marketing*</div>
+            <p className="mt-1 text-sm opacity-60">astrologymarketing.in</p>
             <p className="mt-4 max-w-sm text-sm opacity-70">
               A creative marketing studio building cosmic brands for modern astrologers, tarot readers and spiritual guides.
             </p>
@@ -211,7 +212,7 @@ export function Footer() {
             <p className="text-xs uppercase tracking-widest opacity-60">Studio</p>
             <ul className="mt-4 space-y-2 opacity-80 text-sm">
               <li>info@astrologymarketing.in</li>
-              <li>+91 98765 43210</li>
+              <li>astrologymarketing.in</li>
               <li>Mumbai · Remote</li>
             </ul>
           </div>
