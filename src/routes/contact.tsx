@@ -32,7 +32,6 @@ function Contact() {
             <p className="text-xs uppercase tracking-widest mb-4">Studio</p>
             <ul className="space-y-3 text-lg text-ink">
               <li className="flex gap-3 items-center"><Mail size={18}/> info@astrologymarketing.in</li>
-              <li className="flex gap-3 items-center"><Phone size={18}/> +91 98765 43210</li>
               <li className="flex gap-3 items-center"><MessageCircle size={18}/> WhatsApp us</li>
               <li className="flex gap-3 items-center"><MapPin size={18}/> Bandra West, Mumbai</li>
             </ul>
