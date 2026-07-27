@@ -24,7 +24,7 @@ const values = [
 ];
 
 const team = [
-  { n: "Anaya Sethi", r: "Founder · Creative Director", sign: "Scorpio", color: "var(--coral)" },
+  { n: "Kumar Neepu", r: "Founder · Creative Director", sign: "Scorpio", color: "var(--coral)" },
   { n: "Rohan Mehta", r: "Head of Performance", sign: "Capricorn", color: "var(--lime)" },
   { n: "Mira Kapoor", r: "Lead Editor", sign: "Pisces", color: "var(--blue)" },
   { n: "Vikram Joshi", r: "Brand Strategist", sign: "Aquarius", color: "var(--pink)" },
@@ -105,7 +105,7 @@ function About() {
               <p>If you're serious about your practice, we'll treat your brand like our own chart — carefully, and with intent.</p>
             </div>
             <div className="mt-8 border-l-4 border-lime pl-5">
-              <p className="text-display text-3xl">Anaya Sethi</p>
+              <p className="text-display text-3xl">Kumar Neepu</p>
               <p className="text-sm opacity-70">Founder & Creative Director · astrologymarketing.in</p>
             </div>
           </Reveal>
