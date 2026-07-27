@@ -2,13 +2,14 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import hero from "@/assets/hero-cosmic.jpg";
+import founderImg from "@/assets/founder.jpg.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Lunara Studio" },
-      { name: "description", content: "Lunara is a niche creative studio of strategists, editors and storytellers serving the global astrology community." },
-      { property: "og:title", content: "About — Lunara Studio" },
+      { title: "About — Astrology Marketing" },
+      { name: "description", content: "Astrology Marketing is a niche creative studio of strategists, editors and storytellers serving the global astrology community." },
+      { property: "og:title", content: "About — Astrology Marketing" },
       { property: "og:description", content: "We exist where commerce meets the cosmos." },
     ],
   }),
@@ -64,7 +65,7 @@ function About() {
           </div>
           <div className="md:col-span-8 space-y-6 text-xl md:text-2xl">
             <p>The astrology industry is exploding. Millions search their birth chart every day, yet most astrologer brands still look — and sound — the same.</p>
-            <p>Lunara was founded to change that. We bring the rigour of a performance agency, the eye of a fashion editorial, and the empathy of a longtime believer.</p>
+            <p>Astrology Marketing was founded to change that. We bring the rigour of a performance agency, the eye of a fashion editorial, and the empathy of a longtime believer.</p>
             <p className="text-serif-italic text-3xl md:text-4xl">our mission: make spiritual practitioners impossible to ignore.</p>
           </div>
         </div>
@@ -85,6 +86,33 @@ function About() {
       </section>
 
       <section className="bg-ink text-cream px-6 md:px-10 py-28">
+        <div className="grid md:grid-cols-12 gap-12 items-center">
+          <Reveal variant="left" className="md:col-span-5">
+            <div className="relative">
+              <img src={founderImg.url} alt="Founder of Astrology Marketing" loading="lazy" className="w-full rounded-2xl border-2 border-lime object-cover" />
+              <span className="absolute -bottom-4 -right-3 rotate-[-4deg] bg-lime text-ink border-2 border-ink rounded-full px-4 py-1 text-sm">the founder ✦</span>
+            </div>
+          </Reveal>
+          <Reveal variant="right" className="md:col-span-7">
+            <span className="text-xs uppercase tracking-widest opacity-60">founder's note</span>
+            <h2 className="mt-4 text-display text-[11vw] md:text-[5vw] leading-[0.9]">
+              built for the ones who<br/><span className="text-serif-italic text-lime">read the sky.</span>
+            </h2>
+            <div className="mt-8 space-y-5 text-lg opacity-85 max-w-2xl">
+              <p className="text-serif-italic text-2xl text-lime">"Astrologers change lives every day — but most of them are invisible online. That felt wrong."</p>
+              <p>I started Astrology Marketing after watching brilliant astrologers with waiting lists of loyal clients struggle to get a single reel seen. The craft was there. The storytelling wasn't.</p>
+              <p>So we built a studio that speaks both languages: the language of the cosmos, and the language of the algorithm. Every edit, caption and ad we ship is designed to make a genuine practitioner impossible to scroll past.</p>
+              <p>If you're serious about your practice, we'll treat your brand like our own chart — carefully, and with intent.</p>
+            </div>
+            <div className="mt-8 border-l-4 border-lime pl-5">
+              <p className="text-display text-3xl">Anaya Sethi</p>
+              <p className="text-sm opacity-70">Founder & Creative Director · astrologymarketing.in</p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="bg-ink text-cream px-6 md:px-10 pb-28">
         <h2 className="text-display text-[12vw] md:text-[8vw] mb-12">the <span className="text-serif-italic text-lime">constellation</span></h2>
         <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
           {team.map((t, i) => (

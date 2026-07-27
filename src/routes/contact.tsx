@@ -1,14 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
-import { Instagram, Youtube, Facebook, Linkedin, Twitter, Mail, Phone, MapPin, ArrowUpRight, MessageCircle } from "lucide-react";
+import { Instagram, Youtube, Facebook, Linkedin, Twitter, Mail, MapPin, ArrowUpRight, MessageCircle } from "lucide-react";
+import { sendContactMessage } from "@/lib/contact.functions";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Lunara Studio" },
+      { title: "Contact — Astrology Marketing" },
       { name: "description", content: "Tell us about your astrology brand. We'll respond within one moon cycle (24 hours)." },
-      { property: "og:title", content: "Contact — Lunara Studio" },
-      { property: "og:description", content: "Start a project with Lunara." },
+      { property: "og:title", content: "Contact — Astrology Marketing" },
+      { property: "og:description", content: "Start a project with Astrology Marketing." },
     ],
   }),
   component: Contact,
@@ -16,6 +18,35 @@ export const Route = createFileRoute("/contact")({
 
 function Contact() {
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const send = useServerFn(sendContactMessage);
+
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const fd = new FormData(e.currentTarget);
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await send({
+        data: {
+          name: String(fd.get("name") ?? ""),
+          email: String(fd.get("email") ?? ""),
+          brand: String(fd.get("brand") ?? ""),
+          sign: String(fd.get("sign") ?? ""),
+          service: String(fd.get("service") ?? ""),
+          msg: String(fd.get("msg") ?? ""),
+        },
+      });
+      if (res.ok) setSent(true);
+      else setError(res.error ?? "Something went wrong. Please email info@astrologymarketing.in");
+    } catch {
+      setError("Something went wrong. Please email info@astrologymarketing.in");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div>
       <section className="px-6 md:px-10 pt-10 pb-12 text-center">
@@ -31,8 +62,7 @@ function Contact() {
           <div className="rounded-2xl border-2 border-ink p-8 bg-pink">
             <p className="text-xs uppercase tracking-widest mb-4">Studio</p>
             <ul className="space-y-3 text-lg text-ink">
-              <li className="flex gap-3 items-center"><Mail size={18}/> hello@lunara.studio</li>
-              <li className="flex gap-3 items-center"><Phone size={18}/> +91 98765 43210</li>
+              <li className="flex gap-3 items-center"><Mail size={18}/> info@astrologymarketing.in</li>
               <li className="flex gap-3 items-center"><MessageCircle size={18}/> WhatsApp us</li>
               <li className="flex gap-3 items-center"><MapPin size={18}/> Bandra West, Mumbai</li>
             </ul>
@@ -58,7 +88,7 @@ function Contact() {
           </div>
         </div>
 
-        <form className="md:col-span-7 rounded-2xl border-2 border-ink p-8 md:p-10 bg-cream" onSubmit={(e) => { e.preventDefault(); setSent(true); }}>
+        <form className="md:col-span-7 rounded-2xl border-2 border-ink p-8 md:p-10 bg-cream" onSubmit={onSubmit}>
           {sent ? (
             <div className="text-center py-16">
               <div className="text-display text-6xl">message <span className="text-serif-italic">received ✦</span></div>
@@ -67,8 +97,8 @@ function Contact() {
           ) : (
             <div className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
-                <Field label="Your name" name="name" />
-                <Field label="Email" name="email" type="email" />
+                <Field label="Your name" name="name" required />
+                <Field label="Email" name="email" type="email" required />
               </div>
               <div className="grid md:grid-cols-2 gap-6">
                 <Field label="Brand / Handle" name="brand" />
@@ -77,10 +107,11 @@ function Contact() {
               <SelectField label="What do you need?" name="service" options={["Video Editing", "Social Media", "Performance Ads", "Content Strategy", "Profile Management", "Brand Identity", "Everything"]} />
               <div>
                 <label className="text-xs uppercase tracking-widest">Tell us your story</label>
-                <textarea name="msg" rows={5} className="mt-2 w-full bg-transparent border-b-2 border-ink focus:border-coral outline-none py-3 resize-none" placeholder="What are you building?"/>
+                <textarea name="msg" rows={5} required maxLength={2000} className="mt-2 w-full bg-transparent border-b-2 border-ink focus:border-coral outline-none py-3 resize-none" placeholder="What are you building?"/>
               </div>
-              <button className="inline-flex items-center gap-3 rounded-full bg-ink px-8 py-4 text-cream font-medium hover:bg-coral transition">
-                send transmission <ArrowUpRight size={18}/>
+              {error && <p className="text-sm text-coral">{error}</p>}
+              <button disabled={loading} className="inline-flex items-center gap-3 rounded-full bg-ink px-8 py-4 text-cream font-medium hover:bg-coral transition disabled:opacity-60">
+                {loading ? "sending…" : "send transmission"} <ArrowUpRight size={18}/>
               </button>
             </div>
           )}
@@ -90,11 +121,11 @@ function Contact() {
   );
 }
 
-function Field({ label, name, type = "text" }: { label: string; name: string; type?: string }) {
+function Field({ label, name, type = "text", required }: { label: string; name: string; type?: string; required?: boolean }) {
   return (
     <div>
       <label className="text-xs uppercase tracking-widest">{label}</label>
-      <input type={type} name={name} className="mt-2 w-full bg-transparent border-b-2 border-ink focus:border-coral outline-none py-3"/>
+      <input type={type} name={name} required={required} maxLength={255} className="mt-2 w-full bg-transparent border-b-2 border-ink focus:border-coral outline-none py-3"/>
     </div>
   );
 }
