@@ -63,7 +63,12 @@ function Contact() {
             <p className="text-xs uppercase tracking-widest mb-4">Studio</p>
             <ul className="space-y-3 text-lg text-ink">
               <li className="flex gap-3 items-center"><Mail size={18}/> info@astrologymarketing.in</li>
-              <li className="flex gap-3 items-center"><MessageCircle size={18}/> WhatsApp us</li>
+              <li className="flex gap-3 items-center">
+                <MessageCircle size={18}/>
+                <a href="https://wa.link/nmlzuz" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:opacity-70">
+                  WhatsApp us
+                </a>
+              </li>
               <li className="flex gap-3 items-center"><MapPin size={18}/> Bandra West, Mumbai</li>
             </ul>
           </div>
@@ -71,13 +76,21 @@ function Contact() {
             <p className="text-xs uppercase tracking-widest mb-4">Follow the studio</p>
             <div className="flex flex-wrap gap-3">
               {[
-                { I: Instagram, l: "Instagram", c: "var(--pink)" },
-                { I: Youtube, l: "YouTube", c: "var(--coral)" },
-                { I: Facebook, l: "Facebook", c: "var(--blue)" },
-                { I: Linkedin, l: "LinkedIn", c: "var(--lilac)" },
-                { I: Twitter, l: "Twitter / X", c: "var(--lime)" },
-              ].map(({ I, l, c }) => (
-                <a key={l} href="#" aria-label={l} className="grid h-14 w-14 place-items-center rounded-full border-2 border-ink hover:rotate-12 transition" style={{ background: c }}>
+                { I: Instagram, l: "Instagram", c: "var(--pink)", href: "https://www.instagram.com/astro.marketingg?igsh=aG8wZXB2dHhsM3ds" },
+                { I: Youtube, l: "YouTube", c: "var(--coral)", href: "#" },
+                { I: Facebook, l: "Facebook", c: "var(--blue)", href: "#" },
+                { I: Linkedin, l: "LinkedIn", c: "var(--lilac)", href: "https://www.linkedin.com/in/kumarneepu?utm_source=share_via&utm_content=profile&utm_medium=member_android" },
+                { I: Twitter, l: "Twitter / X", c: "var(--lime)", href: "#" },
+              ].map(({ I, l, c, href }) => (
+                <a
+                  key={l}
+                  href={href}
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  aria-label={l}
+                  className="grid h-14 w-14 place-items-center rounded-full border-2 border-ink hover:rotate-12 transition"
+                  style={{ background: c }}
+                >
                   <I size={20} className="text-ink"/>
                 </a>
               ))}

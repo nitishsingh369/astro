@@ -1,8 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Instagram, Linkedin } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import hero from "@/assets/hero-cosmic.jpg";
-import founderImg from "@/assets/founder.jpg.asset.json";
+import founderImg from "@/assets/FOUNDER_IMAGE.jpeg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -29,6 +29,19 @@ const team = [
   { n: "Mira Kapoor", r: "Lead Editor", sign: "Pisces", color: "var(--blue)" },
   { n: "Vikram Joshi", r: "Brand Strategist", sign: "Aquarius", color: "var(--pink)" },
 ];
+
+const founderSocials = [
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/astro.marketingg?igsh=aG8wZXB2dHhsM3ds",
+    Icon: Instagram,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/kumarneepu?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    Icon: Linkedin,
+  },
+] as const;
 
 function About() {
   return (
@@ -89,7 +102,14 @@ function About() {
         <div className="grid md:grid-cols-12 gap-12 items-center">
           <Reveal variant="left" className="md:col-span-5">
             <div className="relative">
-              <img src={founderImg.url} alt="Founder of Astrology Marketing" loading="lazy" className="w-full rounded-2xl border-2 border-lime object-cover" />
+              <img
+                src={founderImg}
+                alt="Founder of Astrology Marketing"
+                loading="lazy"
+                width={1122}
+                height={1402}
+                className="aspect-[4/5] w-full rounded-2xl border-2 border-lime object-cover object-top"
+              />
               <span className="absolute -bottom-4 -right-3 rotate-[-4deg] bg-lime text-ink border-2 border-ink rounded-full px-4 py-1 text-sm">the founder ✦</span>
             </div>
           </Reveal>
@@ -107,6 +127,20 @@ function About() {
             <div className="mt-8 border-l-4 border-lime pl-5">
               <p className="text-display text-3xl">Kumar Neepu</p>
               <p className="text-sm opacity-70">Founder & Creative Director · astrologymarketing.in</p>
+              <div className="mt-4 flex gap-3">
+                {founderSocials.map(({ label, href, Icon }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="grid h-11 w-11 place-items-center rounded-full border border-cream/30 text-cream hover:bg-lime hover:text-ink hover:border-lime transition"
+                  >
+                    <Icon size={18} />
+                  </a>
+                ))}
+              </div>
             </div>
           </Reveal>
         </div>

@@ -162,6 +162,23 @@ function Header() {
           <img src={qrImg} alt="Scan to WhatsApp us" className="w-full aspect-square object-contain rounded-xl border-2 border-ink" />
           <h3 className="mt-5 text-display text-2xl sm:text-3xl text-ink text-center">whatsapp us</h3>
           <p className="mt-2 text-center text-sm text-ink/80">Scan the QR code to chat with us via your smartphone.</p>
+          <a
+            href="https://wa.link/nmlzuz"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-5 flex w-full items-center justify-center gap-2 rounded-full bg-[#25D366] px-5 py-3 text-sm font-semibold text-white border-2 border-ink shadow-[3px_3px_0_0_var(--ink)] hover:scale-[1.02] transition"
+          >
+            <WhatsAppIcon size={18} />
+            Chat on WhatsApp
+          </a>
+          <a
+            href="https://wa.link/nmlzuz"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 block text-center text-xs text-ink/70 underline underline-offset-2 hover:text-ink break-all"
+          >
+            https://wa.link/nmlzuz
+          </a>
         </div>
       </div>
     )}
@@ -185,8 +202,21 @@ export function Footer() {
               A creative marketing studio building cosmic brands for modern astrologers, tarot readers and spiritual guides.
             </p>
             <div className="mt-6 flex gap-2">
-              {[Instagram, Youtube, Facebook, Linkedin, Twitter].map((Icon, i) => (
-                <a key={i} href="#" aria-label="social" className="grid h-10 w-10 place-items-center rounded-full border border-cream/30 hover:bg-lime hover:text-ink hover:border-lime transition">
+              {[
+                { Icon: Instagram, href: "https://www.instagram.com/astro.marketingg?igsh=aG8wZXB2dHhsM3ds", label: "Instagram" },
+                { Icon: Youtube, href: "#", label: "YouTube" },
+                { Icon: Facebook, href: "#", label: "Facebook" },
+                { Icon: Linkedin, href: "https://www.linkedin.com/in/kumarneepu?utm_source=share_via&utm_content=profile&utm_medium=member_android", label: "LinkedIn" },
+                { Icon: Twitter, href: "#", label: "Twitter" },
+              ].map(({ Icon, href, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  aria-label={label}
+                  className="grid h-10 w-10 place-items-center rounded-full border border-cream/30 hover:bg-lime hover:text-ink hover:border-lime transition"
+                >
                   <Icon size={16} />
                 </a>
               ))}
