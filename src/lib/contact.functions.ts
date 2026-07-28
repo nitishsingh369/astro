@@ -39,7 +39,7 @@ export const sendContactMessage = createServerFn({ method: "POST" })
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "Astrology Marketing <onboarding@resend.dev>",
+        from: "Astrology Marketing <noreply@astrologymarketing.in>",
         to: ["info@astrologymarketing.in"],
         reply_to: data.email,
         subject: `New enquiry from ${data.name}`,
