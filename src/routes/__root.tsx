@@ -69,7 +69,6 @@ function RootShell({ children }: { children: ReactNode }) {
 const NAV = [
   { to: "/", label: "Home" },
   { to: "/services", label: "Services" },
-  { to: "/work", label: "Work" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ] as const;
@@ -114,7 +113,7 @@ function Header() {
       <div className="flex items-center justify-between px-6 py-5 md:px-10">
         <Link to="/" className="relative inline-flex items-center">
           <StarBurst className="absolute -left-2 -top-2 h-16 w-16 wiggle" />
-          <span className="relative text-display text-2xl text-ink pl-3">work</span>
+          <span className="relative text-display text-2xl text-ink pl-3">am*</span>
         </Link>
         <Link to="/" className="hidden md:block text-serif-italic text-3xl text-ink hover:scale-105 transition whitespace-nowrap">
           astrology marketing*
@@ -160,8 +159,8 @@ function Header() {
             <WhatsAppIcon size={20} />
           </div>
           <img src={qrImg} alt="Scan to WhatsApp us" className="w-full aspect-square object-contain rounded-xl border-2 border-ink" />
-          <h3 className="mt-5 text-display text-2xl sm:text-3xl text-ink text-center">whatsapp us</h3>
-          <p className="mt-2 text-center text-sm text-ink/80">Scan the QR code to chat with us via your smartphone.</p>
+          <h3 className="mt-5 text-display text-2xl sm:text-3xl text-ink text-center">whatsapp me</h3>
+          <p className="mt-2 text-center text-sm text-ink/80">Scan the QR code to chat directly on WhatsApp.</p>
           <a
             href="https://wa.link/nmlzuz"
             target="_blank"
@@ -169,7 +168,7 @@ function Header() {
             className="mt-5 flex w-full items-center justify-center gap-2 rounded-full bg-[#25D366] px-5 py-3 text-sm font-semibold text-white border-2 border-ink shadow-[3px_3px_0_0_var(--ink)] hover:scale-[1.02] transition"
           >
             <WhatsAppIcon size={18} />
-            Chat on WhatsApp
+            Message on WhatsApp
           </a>
           <a
             href="https://wa.link/nmlzuz"
@@ -191,15 +190,15 @@ export function Footer() {
     <footer className="bg-ink text-cream">
       <div className="px-6 md:px-10 py-20">
         <div className="text-display text-[18vw] leading-[0.85] tracking-tight">
-          let's<br/>
-          <span className="text-serif-italic text-lime">make magic</span>
+          turn content into<br/>
+          <span className="text-serif-italic text-lime">bookings</span>
         </div>
         <div className="mt-20 grid gap-10 md:grid-cols-[2fr_1fr_1fr_1fr]">
           <div>
             <div className="text-serif-italic text-5xl">astrology marketing*</div>
             <p className="mt-1 text-sm opacity-60">astrologymarketing.in</p>
             <p className="mt-4 max-w-sm text-sm opacity-70">
-              A creative marketing studio building cosmic brands for modern astrologers, tarot readers and spiritual guides.
+              Boutique marketing by Kumar Neepu — turning social content into consultation bookings for astrologers, tarot readers and numerologists.
             </p>
             <div className="mt-6 flex gap-2">
               {[
@@ -231,19 +230,19 @@ export function Footer() {
           <div>
             <p className="text-xs uppercase tracking-widest opacity-60">Services</p>
             <ul className="mt-4 space-y-2 opacity-80 text-sm">
-              <li>Video Editing</li>
-              <li>Social Media</li>
-              <li>Performance Ads</li>
-              <li>Content Strategy</li>
-              <li>Profile Management</li>
+              <li>Reels &amp; Short Video</li>
+              <li>Feed &amp; Story Booking Strategy</li>
+              <li>Facebook Reposting</li>
+              <li>YouTube Shorts &amp; Long-Form</li>
+              <li>Google &amp; Review System</li>
             </ul>
           </div>
           <div>
-            <p className="text-xs uppercase tracking-widest opacity-60">Studio</p>
+            <p className="text-xs uppercase tracking-widest opacity-60">Location</p>
             <ul className="mt-4 space-y-2 opacity-80 text-sm">
               <li>info@astrologymarketing.in</li>
               <li>astrologymarketing.in</li>
-              <li>Mumbai · Remote</li>
+              <li>Delhi &amp; Varanasi</li>
             </ul>
           </div>
         </div>

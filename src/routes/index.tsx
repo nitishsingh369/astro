@@ -1,25 +1,19 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, AlertCircle } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
-import hero from "@/assets/hero-cosmic.jpg";
-import work1 from "@/assets/work-1.jpg";
-import work2 from "@/assets/work-2.jpg";
-import work3 from "@/assets/work-3.jpg";
-import work4 from "@/assets/work-4.jpg";
+import founderImg from "@/assets/FOUNDER_IMAGE.jpeg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Astrology Marketing — Marketing for Astrologers" },
-      { name: "description", content: "Cinematic video, social strategy and performance marketing built exclusively for astrologers, tarot readers and spiritual creators." },
-      { property: "og:title", content: "Astrology Marketing — Marketing for Astrologers" },
-      { property: "og:description", content: "We grow spiritual brands with cosmic creative." },
+      { title: "Kumar Neepu — Content to Consultation Bookings for Astrologers" },
+      { name: "description", content: "I turn social media content into consultation bookings for astrologers, tarot readers and numerologists. 6 years inside Guruji Astro." },
+      { property: "og:title", content: "Kumar Neepu — Marketing for Astrologers" },
+      { property: "og:description", content: "Followers don't pay you. Bookings do. Direct 1-on-1 marketing for spiritual practitioners." },
     ],
   }),
   component: Home,
 });
-
-const marqueeWords = ["video editing", "social media", "performance ads", "content strategy", "profile management", "brand identity"];
 
 function StarBurst({ className = "", color = "var(--coral)" }: { className?: string; color?: string }) {
   return (
@@ -40,21 +34,10 @@ function Sticker({ children, color, rotate = -4, className = "" }: { children: R
   );
 }
 
-function Squiggle({ className = "" }: { className?: string }) {
+function WhatsAppIcon({ size = 20 }: { size?: number }) {
   return (
-    <svg viewBox="0 0 200 40" className={className} fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" aria-hidden>
-      <path d="M5 20 Q 30 0, 55 20 T 105 20 T 155 20 T 195 20" />
-    </svg>
-  );
-}
-
-function Smiley({ className = "" }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 100 100" className={className} aria-hidden>
-      <circle cx="50" cy="50" r="48" fill="var(--blue)" stroke="var(--ink)" strokeWidth="3"/>
-      <circle cx="35" cy="42" r="5" fill="var(--ink)"/>
-      <circle cx="65" cy="42" r="5" fill="var(--ink)"/>
-      <path d="M30 60 Q 50 80 70 60" stroke="var(--ink)" strokeWidth="4" fill="none" strokeLinecap="round"/>
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+      <path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.2-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.5-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5s-.7-1.7-1-2.3c-.3-.6-.5-.5-.7-.5H7.7c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5 4.5 1.7.7 2.4.8 3.3.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.4.8 3.1 1.3 4.8 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.3.9.9-3.2-.2-.3C3.8 15 3.3 13.5 3.3 12c0-4.8 3.9-8.7 8.7-8.7s8.7 3.9 8.7 8.7-3.9 8-8.7 8z"/>
     </svg>
   );
 }
@@ -63,241 +46,253 @@ function Home() {
   return (
     <div>
       {/* HERO */}
-      <section className="relative px-6 md:px-10 pt-10 pb-24 overflow-hidden">
-        {/* ambient blobs */}
+      <section className="relative px-6 md:px-10 pt-8 pb-24 overflow-hidden">
         <div aria-hidden className="pointer-events-none absolute -top-20 -left-24 h-96 w-96 rounded-full blur-3xl opacity-40" style={{ background: "var(--lilac)" }} />
-        <div aria-hidden className="pointer-events-none absolute top-40 right-1/3 h-80 w-80 rounded-full blur-3xl opacity-30" style={{ background: "var(--pink)" }} />
+        <div aria-hidden className="pointer-events-none absolute top-40 right-1/3 h-80 w-80 rounded-full blur-3xl opacity-30" style={{ background: "var(--lime)" }} />
 
         {/* top ticker */}
-        <Reveal variant="fade" className="mb-6 flex flex-wrap items-center gap-3 text-sm">
-          <span className="inline-flex items-center gap-2 rounded-full bg-ink text-cream px-4 py-1.5">
-            <span className="h-2 w-2 rounded-full bg-lime animate-pulse" /> booking · winter '26
+        <Reveal variant="fade" className="mb-8 flex flex-wrap items-center gap-3 text-sm">
+          <span className="inline-flex items-center gap-2 rounded-full bg-ink text-cream px-4 py-1.5 font-medium">
+            <span className="h-2 w-2 rounded-full bg-lime animate-pulse" /> 6 years inside Guruji Astro
           </span>
-          <Sticker color="var(--pink)" rotate={-3}>✦ trusted by 80+ astrologers</Sticker>
-          <Sticker color="var(--blue)" rotate={2} className="text-cream" >★ 4.9 avg client rating</Sticker>
+          <Sticker color="var(--lime)" rotate={-2}>✦ 100+ astrologers worked with</Sticker>
+          <Sticker color="var(--pink)" rotate={2}>No team · You work with me</Sticker>
         </Reveal>
 
-        <div className="relative grid md:block gap-8">
-          {/* hero portrait cluster - mobile first, then desktop absolute */}
-          <Reveal variant="rotate" delay={200} duration={1000} className="order-1 md:order-none mx-auto md:mx-0 w-56 sm:w-64 md:w-64 md:absolute md:top-0 md:right-4 lg:right-10">
-            <div className="relative">
-              {/* orbiting starburst */}
-              <StarBurst className="absolute -top-8 -right-6 md:-right-8 h-16 w-16 md:h-20 md:w-20 spin-slow" color="var(--coral)" />
-              {/* back polaroid */}
-              <div className="absolute -left-4 md:-left-6 top-4 w-full aspect-[4/5] rounded-md border-2 border-ink bg-lime rotate-[-8deg] shadow-[6px_6px_0_0_var(--ink)]" />
+        <div className="grid md:grid-cols-12 gap-10 items-center">
+          <div className="md:col-span-7">
+            <Reveal as="h1" variant="up" duration={1000} className="text-display text-[14vw] sm:text-[11vw] md:text-[8vw] text-ink leading-[0.9]">
+              followers don't pay you.<br/>
+              <span className="text-serif-italic text-coral">bookings do.</span>
+            </Reveal>
+
+            <Reveal variant="up" delay={200} className="mt-8 space-y-4 text-base md:text-xl text-ink/90 leading-relaxed max-w-2xl">
+              <p>
+                <strong>I'm Kumar Neepu.</strong> I spent six years running social media at Guruji Astro, from the inside — not as a consultant. Since then I've worked with more than 100 astrologers, tarot readers and numerologists.
+              </p>
+              <p className="text-serif-italic text-xl md:text-2xl text-ink font-medium">
+                I do one thing: turn your content into consultation bookings. No team, no account manager. You work with me.
+              </p>
+            </Reveal>
+
+            <Reveal variant="up" delay={300} className="mt-10 flex flex-wrap items-center gap-4">
+              <a
+                href="https://wa.link/nmlzuz"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-3 rounded-full bg-[#25D366] text-white px-7 py-4 text-lg font-semibold shadow-[4px_4px_0_0_var(--ink)] border-2 border-ink hover:scale-105 transition"
+              >
+                <WhatsAppIcon size={22} /> Message me on WhatsApp
+              </a>
+              <Link
+                to="/about"
+                className="inline-flex items-center gap-2 rounded-full bg-cream border-2 border-ink px-6 py-4 font-medium hover:bg-lime transition"
+              >
+                About me <ArrowUpRight size={18} />
+              </Link>
+            </Reveal>
+          </div>
+
+          <div className="md:col-span-5">
+            <Reveal variant="rotate" delay={200} className="relative mx-auto max-w-xs md:max-w-none">
+              <StarBurst className="absolute -top-6 -right-6 h-20 w-20 spin-slow" color="var(--coral)" />
               <div className="relative wiggle">
-                <img src={hero} alt="astrologer" width={1600} height={1200} className="relative w-full aspect-[4/5] object-cover rounded-md border-2 border-ink shadow-[8px_8px_0_0_var(--ink)] md:shadow-[10px_10px_0_0_var(--ink)]" />
-                <Sticker color="var(--lime)" rotate={-8} className="absolute -bottom-3 -left-3">we make ads ✦</Sticker>
-                <Sticker color="var(--cream)" rotate={6} className="absolute -top-4 -right-2 border-2 border-ink">new drop*</Sticker>
+                <img
+                  src={founderImg}
+                  alt="Kumar Neepu"
+                  width={1122}
+                  height={1402}
+                  className="aspect-[4/5] w-full object-cover object-top rounded-2xl border-2 border-ink shadow-[10px_10px_0_0_var(--ink)]"
+                />
+                <Sticker color="var(--lime)" rotate={-6} className="absolute -bottom-4 -left-3 border-2 border-ink font-semibold">
+                  Kumar Neepu ✦
+                </Sticker>
               </div>
-              {/* rotating badge */}
-              <div className="absolute -bottom-8 -right-4 md:-right-10 h-20 w-20 md:h-28 md:w-28 grid place-items-center">
-                <svg viewBox="0 0 100 100" className="absolute inset-0 spin-slow" aria-hidden>
-                  <defs>
-                    <path id="circ" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0" />
-                  </defs>
-                  <text fontSize="11" fontWeight="600" letterSpacing="3" fill="var(--ink)">
-                    <textPath href="#circ">✦ COSMIC · CREATIVE · STUDIO · SINCE 2020 </textPath>
-                  </text>
-                </svg>
-                <span className="relative text-2xl">✦</span>
-              </div>
-            </div>
-          </Reveal>
-
-          <Reveal as="h1" variant="up" duration={1000} className="order-2 md:order-none text-display text-[19vw] sm:text-[16vw] md:text-[14vw] text-ink leading-[0.85]">
-            we make <span className="text-serif-italic">advertising</span>
-            <br/>
-            for the new <span className="relative inline-block">
-              <Smiley className="absolute -left-3 -top-3 md:-left-6 md:-top-6 w-10 h-10 md:w-20 md:h-20 float" />
-              cosmos
-              <svg viewBox="0 0 400 60" className="absolute -bottom-2 left-0 w-full" fill="none" stroke="var(--ink)" strokeWidth="3" aria-hidden>
-                <ellipse cx="200" cy="30" rx="195" ry="22" />
-              </svg>
-            </span>
-          </Reveal>
-        </div>
-
-        {/* sub row */}
-        <div className="relative mt-10 md:mt-14 grid md:grid-cols-[1.4fr_1fr] gap-8 md:gap-10 items-end">
-          <Reveal variant="up" delay={300} as="p" className="max-w-xl text-base md:text-2xl leading-snug">
-            A boutique studio scripting, shooting and scaling content for
-            <span className="text-serif-italic"> astrologers, tarot readers &amp; spiritual guides</span> — from first reel to first million.
-          </Reveal>
-          <Reveal variant="up" delay={400} className="flex flex-wrap gap-3">
-            <Link to="/contact" className="group inline-flex items-center gap-2 rounded-full bg-ink text-cream px-6 py-4 font-medium hover:bg-coral transition">
-              start your chart <ArrowUpRight size={18} className="group-hover:rotate-45 transition" />
-            </Link>
-            <Link to="/work" className="inline-flex items-center gap-2 rounded-full bg-cream border-2 border-ink px-6 py-4 font-medium hover:bg-lime transition">
-              see the work
-            </Link>
-          </Reveal>
-        </div>
-
-
-        {/* mini stats */}
-        <Reveal variant="fade" delay={500} className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4">
-          {[
-            { k: "120M+", v: "organic views" },
-            { k: "80+", v: "brands guided" },
-            { k: "4.2x", v: "average ROAS" },
-            { k: "12", v: "zodiac niches" },
-          ].map((s) => (
-            <div key={s.v} className="rounded-2xl border-2 border-ink bg-cream/50 backdrop-blur px-5 py-4">
-              <div className="text-display text-4xl">{s.k}</div>
-              <div className="text-xs uppercase tracking-widest opacity-70 mt-1">{s.v}</div>
-            </div>
-          ))}
-        </Reveal>
-      </section>
-
-      {/* WANNA BE */}
-      <section className="relative px-6 md:px-10 py-24 overflow-hidden">
-        <div className="relative max-w-6xl mx-auto text-center">
-          <Reveal variant="zoom"><Squiggle className="mx-auto w-64 text-ink mb-6" /></Reveal>
-          <Reveal as="h2" variant="up" duration={900} className="text-display text-[16vw] md:text-[10vw] leading-[0.9]">
-            we wanna be<br/>
-            <span className="text-serif-italic">where the stars are</span>
-          </Reveal>
-          <Reveal variant="fade" delay={200} as="p" className="mt-12 max-w-2xl mx-auto text-lg md:text-xl">
-            Audiences are more scattered <span className="text-serif-italic">and</span> more reachable than ever.
-            We help astrologers, tarot readers and spiritual brands become leaders on the channels of the new mainstream.
-          </Reveal>
-          <Sticker color="var(--lime)" rotate={-6} className="absolute -left-2 top-20 hidden md:inline-block float">✦ thumbs up</Sticker>
-          <Sticker color="var(--pink)" rotate={8} className="absolute right-0 bottom-20 hidden md:inline-block wiggle">★ magic dust</Sticker>
-        </div>
-      </section>
-
-
-      {/* MARQUEE */}
-      <section className="border-y-2 border-ink overflow-hidden bg-lime py-5">
-        <div className="flex marquee whitespace-nowrap text-display text-5xl md:text-7xl text-ink">
-          {[...marqueeWords, ...marqueeWords].map((w, i) => (
-            <span key={i} className="mx-6 flex items-center gap-6">
-              {w}<span className="text-coral">✦</span>
-            </span>
-          ))}
-        </div>
-      </section>
-
-      {/* AGENCY BUILT */}
-      <section className="px-6 md:px-10 py-28 text-center">
-        <h2 className="text-display text-[14vw] md:text-[9vw]">
-          an agency built<br/>
-          for the future. <span className="text-serif-italic">from TV<br/>to TikTok.</span>
-        </h2>
-        <div className="relative mx-auto mt-4 w-fit">
-          <Squiggle className="w-80 md:w-[28rem] text-ink" />
-        </div>
-
-        {/* polaroid stack */}
-        <div className="relative mt-20 max-w-5xl mx-auto h-[420px] md:h-[520px]">
-          {[
-            { img: hero, rot: -8, x: "0%", label: "girls just wanna read charts!", color: "var(--pink)" },
-            { img: work1, rot: 4, x: "22%", label: "moonlit & magical", color: "var(--lime)" },
-            { img: work2, rot: -3, x: "44%", label: "tarot tuesday vibes", color: "var(--coral)" },
-            { img: work4, rot: 6, x: "66%", label: "reels of the seer", color: "var(--blue)" },
-          ].map((p, i) => (
-            <div key={i}
-              className="absolute top-0 w-44 md:w-64 hover:z-10 hover:scale-105 transition"
-              style={{ left: p.x, transform: `rotate(${p.rot}deg)` }}>
-              <img src={p.img} alt={p.label} loading="lazy" width={1024} height={1280} className="w-full aspect-[3/4] object-cover rounded-md border-2 border-ink shadow-[6px_6px_0_0_var(--ink)]"/>
-              <Sticker color={p.color} rotate={-p.rot} className="absolute -bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap">{p.label}</Sticker>
-            </div>
-          ))}
-        </div>
-
-        <p className="mt-32 max-w-3xl mx-auto text-lg md:text-xl">
-          To reach the new generation you need to know where they are. We are a true 360° spiritual agency, working the whole spectrum — from TikTok content to YouTube series and from creator collabs to performance ads.
-        </p>
-      </section>
-
-      {/* SERVICES */}
-      <section className="bg-ink text-cream px-6 md:px-10 py-28">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-          <h2 className="text-display text-[14vw] md:text-[8vw]">
-            what we<br/>
-            <span className="text-serif-italic text-lime">actually do.</span>
-          </h2>
-          <Link to="/services" className="inline-flex items-center gap-2 rounded-full bg-lime text-ink px-6 py-3 text-sm uppercase font-semibold hover:bg-cream transition">
-            All services <ArrowUpRight size={16} />
-          </Link>
-        </div>
-        <div className="grid gap-6 md:grid-cols-3">
-          {[
-            { n: "01", t: "Video Editing", d: "Cinematic reels, YouTube shorts and long-form readings — cut to keep viewers spellbound.", color: "var(--coral)" },
-            { n: "02", t: "Social Media", d: "Daily content, community building and aesthetic feeds that turn followers into believers.", color: "var(--lime)" },
-            { n: "03", t: "Performance Ads", d: "Meta and Google campaigns engineered for consultations, course sales and bookings.", color: "var(--blue)" },
-            { n: "04", t: "Content Strategy", d: "Story pillars, content calendars and hooks tuned to your zodiac niche.", color: "var(--pink)" },
-            { n: "05", t: "Profile Management", d: "We run the whole show — DMs, posts, comments — so you can focus on the stars.", color: "var(--lilac)" },
-            { n: "06", t: "Brand Identity", d: "Logo, palette, type and motion systems with a celestial soul.", color: "var(--teal)" },
-          ].map((s, i) => (
-            <Reveal key={s.n} variant="up" delay={i * 80} className="rounded-2xl border-2 border-cream/15 p-8 hover:border-lime hover:-translate-y-1 transition-all duration-300 group">
-              <div className="flex items-center justify-between">
-                <span className="text-xs opacity-60">{s.n}</span>
-                <span className="h-3 w-3 rounded-full" style={{ background: s.color }} />
-              </div>
-              <h3 className="text-display text-4xl mt-8">{s.t}</h3>
-              <p className="mt-3 text-sm opacity-75">{s.d}</p>
             </Reveal>
-          ))}
+          </div>
         </div>
       </section>
 
-      {/* RECENT WORK */}
-      <section className="px-6 md:px-10 py-28">
-        <div className="flex items-end justify-between mb-12 flex-wrap gap-4">
-          <h2 className="text-display text-[14vw] md:text-[9vw]">
-            recent <span className="text-serif-italic">work</span>
-          </h2>
-          <Link to="/work" className="rounded-full bg-ink text-cream px-6 py-3 text-sm uppercase font-semibold hover:bg-coral transition inline-flex items-center gap-2">
-            Open archive <ArrowUpRight size={16}/>
-          </Link>
-        </div>
-        <div className="grid gap-6 md:grid-cols-12">
-          {[
-            { img: work1, span: "md:col-span-7", title: "the keeper of orbits", year: "2026", color: "var(--lime)", rot: -3 },
-            { img: work2, span: "md:col-span-5", title: "midnight tarot", year: "2026", color: "var(--coral)", rot: 2 },
-            { img: work3, span: "md:col-span-5", title: "celestial atlas", year: "2025", color: "var(--blue)", rot: -2 },
-            { img: work4, span: "md:col-span-7", title: "reels of the seer", year: "2025", color: "var(--pink)", rot: 3 },
-          ].map((p, i) => (
-            <Reveal as="figure" key={i} variant={i % 2 === 0 ? "left" : "right"} delay={i * 100} className={`${p.span} group relative`}>
-              <div className="overflow-hidden rounded-2xl border-2 border-ink">
-                <img src={p.img} alt={p.title} loading="lazy" width={1024} height={1280} className="aspect-[5/6] w-full object-cover transition duration-700 group-hover:scale-105" />
-              </div>
-              <Sticker color={p.color} rotate={p.rot} className="absolute -bottom-3 left-6">{p.title}</Sticker>
-              <span className="absolute top-4 right-4 bg-ink text-cream text-xs px-3 py-1 rounded-full">{p.year}</span>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      {/* STATS */}
+      {/* THE THREE NUMBERS */}
       <section className="bg-lime border-y-2 border-ink px-6 md:px-10 py-20">
-        <div className="grid gap-10 md:grid-cols-4 text-ink">
-          {[
-            { k: "80+", v: "astrologer brands" },
-            { k: "120M", v: "organic views" },
-            { k: "4.2x", v: "average ROAS" },
-            { k: "∞", v: "cosmic curiosity" },
-          ].map((s, i) => (
-            <Reveal key={s.v} variant="zoom" delay={i * 120}>
-              <div className="text-display text-7xl md:text-8xl">{s.k}</div>
-              <p className="mt-2 text-sm uppercase tracking-widest">{s.v}</p>
+        <div className="max-w-6xl mx-auto">
+          <p className="text-xs uppercase tracking-widest text-ink/70 mb-4 font-semibold">The track record</p>
+          <div className="grid gap-8 md:grid-cols-3 text-ink">
+            <Reveal variant="zoom" delay={100} className="rounded-2xl border-2 border-ink bg-cream p-8 shadow-[4px_4px_0_0_var(--ink)]">
+              <div className="text-display text-6xl md:text-7xl text-ink">6 years</div>
+              <p className="mt-3 text-lg font-medium">inside Guruji Astro's social media</p>
             </Reveal>
-          ))}
+            <Reveal variant="zoom" delay={200} className="rounded-2xl border-2 border-ink bg-cream p-8 shadow-[4px_4px_0_0_var(--ink)]">
+              <div className="text-display text-6xl md:text-7xl text-ink">100+</div>
+              <p className="mt-3 text-lg font-medium">astrologers I've worked with directly</p>
+            </Reveal>
+            <Reveal variant="zoom" delay={300} className="rounded-2xl border-2 border-ink bg-cream p-8 shadow-[4px_4px_0_0_var(--ink)]">
+              <div className="text-display text-6xl md:text-7xl text-coral">~80</div>
+              <p className="mt-3 text-lg font-medium">of them where it actually worked</p>
+            </Reveal>
+          </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="px-6 md:px-10 py-28 text-center relative">
-        <Sticker color="var(--coral)" rotate={-6} className="mb-6">your next chapter ✦</Sticker>
-        <h2 className="text-display text-[14vw] md:text-[10vw]">
-          let's read<br/>your <span className="text-serif-italic">chart.</span>
+      {/* ABOUT THE 20 IT DIDN'T WORK FOR */}
+      <section className="px-6 md:px-10 py-24 bg-cream">
+        <div className="max-w-4xl mx-auto rounded-3xl border-2 border-ink bg-ink text-cream p-8 md:p-14 shadow-[8px_8px_0_0_var(--coral)] relative overflow-hidden">
+          <div className="flex items-center gap-3 text-lime mb-4">
+            <AlertCircle size={24} />
+            <span className="text-xs uppercase tracking-widest font-semibold">Full transparency</span>
+          </div>
+          <h2 className="text-display text-4xl md:text-6xl text-cream">
+            About the 20 it didn't work for
+          </h2>
+          <div className="mt-8 space-y-6 text-lg md:text-xl text-cream/90 leading-relaxed font-normal">
+            <p>
+              Roughly one in five astrologers I've worked with didn't get the result they wanted. I'd rather say that here than have you find out in month three.
+            </p>
+            <p className="p-6 rounded-2xl bg-cream/10 border border-cream/20 text-cream">
+              In most of those cases it came down to one of two things: they wanted follower count and I was building bookings, which are not the same job — or the content needed them on camera consistently and that wasn't something they wanted to do.
+            </p>
+            <p className="text-serif-italic text-2xl text-lime">
+              Ask me about it on the call. If either of those sounds like you, we'll both save some money.
+            </p>
+          </div>
+          <div className="mt-10">
+            <a
+              href="https://wa.link/nmlzuz"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-lime text-ink px-6 py-3 font-semibold hover:bg-cream transition"
+            >
+              Ask me on WhatsApp <ArrowUpRight size={18} />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* PROOF BLOCK - WHO I WORK WITH */}
+      <section className="px-6 md:px-10 py-28 bg-background border-t-2 border-ink">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+            <div>
+              <span className="inline-block bg-pink border-2 border-ink rounded-full px-4 py-1 text-sm font-medium rotate-[-2deg] mb-4">Proof &amp; Roster</span>
+              <h2 className="text-display text-[12vw] md:text-[7vw] leading-[0.9]">
+                who I <span className="text-serif-italic text-coral">work with</span>
+              </h2>
+            </div>
+            <p className="max-w-md text-base text-ink/80">
+              All three accounts are public. Go and look at them.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Client 1 */}
+            <Reveal variant="up" delay={100} className="rounded-2xl border-2 border-ink bg-cream p-8 flex flex-col justify-between hover:-translate-y-1 transition shadow-[4px_4px_0_0_var(--ink)]">
+              <div>
+                <div className="flex justify-between items-start">
+                  <span className="text-xs uppercase tracking-widest text-ink/60 font-semibold">Instagram</span>
+                  <CheckCircle2 size={20} className="text-coral" />
+                </div>
+                <h3 className="text-display text-3xl mt-4 text-ink">Guru Ashish Sharma</h3>
+                <a
+                  href="https://www.instagram.com/guruashishsharmaji"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-serif-italic text-lg text-coral underline underline-offset-4 block mt-1 hover:text-ink"
+                >
+                  @guruashishsharmaji
+                </a>
+                <p className="mt-6 text-base text-ink/80 leading-relaxed">
+                  Celebrity astrologer and relationship expert. 722K followers, 2 lakh+ consultations. He also practises on Astrotalk.
+                </p>
+              </div>
+              <a
+                href="https://www.instagram.com/guruashishsharmaji"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 inline-flex items-center gap-2 text-sm font-semibold underline underline-offset-4"
+              >
+                View live account <ArrowUpRight size={16} />
+              </a>
+            </Reveal>
+
+            {/* Client 2 */}
+            <Reveal variant="up" delay={200} className="rounded-2xl border-2 border-ink bg-cream p-8 flex flex-col justify-between hover:-translate-y-1 transition shadow-[4px_4px_0_0_var(--ink)]">
+              <div>
+                <div className="flex justify-between items-start">
+                  <span className="text-xs uppercase tracking-widest text-ink/60 font-semibold">YouTube</span>
+                  <CheckCircle2 size={20} className="text-coral" />
+                </div>
+                <h3 className="text-display text-3xl mt-4 text-ink">Truths of Astro</h3>
+                <p className="text-serif-italic text-lg text-ink/70 mt-1">YouTube Channel</p>
+                <p className="mt-6 text-base text-ink/80 leading-relaxed">
+                  84.6K subscribers. Long-form Vedic astrology teaching — the format most astrologers are told won't work.
+                </p>
+              </div>
+              <span className="mt-8 inline-flex items-center gap-2 text-sm font-semibold opacity-70">
+                Public YouTube account
+              </span>
+            </Reveal>
+
+            {/* Client 3 */}
+            <Reveal variant="up" delay={300} className="rounded-2xl border-2 border-ink bg-cream p-8 flex flex-col justify-between hover:-translate-y-1 transition shadow-[4px_4px_0_0_var(--ink)]">
+              <div>
+                <div className="flex justify-between items-start">
+                  <span className="text-xs uppercase tracking-widest text-ink/60 font-semibold">Instagram · Diaspora</span>
+                  <CheckCircle2 size={20} className="text-coral" />
+                </div>
+                <h3 className="text-display text-3xl mt-4 text-ink">Starstuck Signs</h3>
+                <a
+                  href="https://www.instagram.com/starstuck_signs"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-serif-italic text-lg text-coral underline underline-offset-4 block mt-1 hover:text-ink"
+                >
+                  @starstuck_signs
+                </a>
+                <p className="mt-6 text-base text-ink/80 leading-relaxed">
+                  Vedic astrologer in Toronto, serving the Canadian and US diaspora. 16K followers, with a booking path that actually converts.
+                </p>
+              </div>
+              <a
+                href="https://www.instagram.com/starstuck_signs"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 inline-flex items-center gap-2 text-sm font-semibold underline underline-offset-4"
+              >
+                View live account <ArrowUpRight size={16} />
+              </a>
+            </Reveal>
+          </div>
+
+          <div className="mt-12 text-center p-6 rounded-2xl bg-lime/30 border-2 border-ink">
+            <p className="text-serif-italic text-xl text-ink font-medium">
+              "All three accounts are public. Go and look at them."
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA SECTION */}
+      <section className="px-6 md:px-10 py-28 text-center bg-ink text-cream relative">
+        <Sticker color="var(--lime)" rotate={-4} className="mb-6">Direct access · No agency fluff</Sticker>
+        <h2 className="text-display text-[14vw] md:text-[9vw] leading-[0.9]">
+          ready to turn content<br/>into <span className="text-serif-italic text-lime">bookings?</span>
         </h2>
-        <Link to="/contact" className="mt-10 inline-flex items-center gap-3 rounded-full bg-ink px-8 py-4 text-cream font-medium hover:bg-coral transition">
-          book a discovery call <ArrowUpRight size={18} />
-        </Link>
+        <div className="mt-12 flex flex-wrap justify-center items-center gap-4">
+          <a
+            href="https://wa.link/nmlzuz"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 rounded-full bg-[#25D366] text-white px-8 py-4 text-xl font-bold shadow-[4px_4px_0_0_var(--cream)] border-2 border-cream hover:scale-105 transition"
+          >
+            <WhatsAppIcon size={24} /> Message me on WhatsApp
+          </a>
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-2 rounded-full border-2 border-cream px-8 py-4 text-cream font-medium hover:bg-cream hover:text-ink transition"
+          >
+            Send inquiry <ArrowUpRight size={18} />
+          </Link>
+        </div>
       </section>
     </div>
   );

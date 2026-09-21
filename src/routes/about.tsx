@@ -1,34 +1,27 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight, Instagram, Linkedin } from "lucide-react";
+import { ArrowUpRight, Instagram, Linkedin, MapPin, Sparkles } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
-import hero from "@/assets/hero-cosmic.jpg";
 import founderImg from "@/assets/FOUNDER_IMAGE.jpeg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Astrology Marketing" },
-      { name: "description", content: "Astrology Marketing is a niche creative studio of strategists, editors and storytellers serving the global astrology community." },
-      { property: "og:title", content: "About — Astrology Marketing" },
-      { property: "og:description", content: "We exist where commerce meets the cosmos." },
+      { title: "About — Kumar Neepu | Astrology Marketing" },
+      { name: "description", content: "There is no studio. There's me — Kumar Neepu. Ex-Balaji Telefilms AD, 6 years inside Guruji Astro. Turning content into consultation bookings." },
+      { property: "og:title", content: "About — Kumar Neepu" },
+      { property: "og:description", content: "There is no studio. There's me." },
     ],
   }),
   component: About,
 });
 
-const values = [
-  { t: "Niche obsession", d: "We don't take on fitness brands or fintechs. Astrology is the only universe we orbit.", color: "var(--lime)" },
-  { t: "Craft first", d: "Every reel, ad and headline is hand-crafted. No templates, no AI slop, no shortcuts.", color: "var(--coral)" },
-  { t: "Data with soul", d: "We respect intuition, but we also love a good dashboard. Both move the brand forward.", color: "var(--blue)" },
-  { t: "Long-term alignment", d: "We work with a small roster so we can be your team, not your vendor.", color: "var(--pink)" },
-];
-
-const team = [
-  { n: "Kumar Neepu", r: "Founder · Creative Director", sign: "Scorpio", color: "var(--coral)" },
-  { n: "Rohan Mehta", r: "Head of Performance", sign: "Capricorn", color: "var(--lime)" },
-  { n: "Mira Kapoor", r: "Lead Editor", sign: "Pisces", color: "var(--blue)" },
-  { n: "Vikram Joshi", r: "Brand Strategist", sign: "Aquarius", color: "var(--pink)" },
-];
+function WhatsAppIcon({ size = 20 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+      <path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.2-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.5-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5s-.7-1.7-1-2.3c-.3-.6-.5-.5-.7-.5H7.7c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5 4.5 1.7.7 2.4.8 3.3.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.4.8 3.1 1.3 4.8 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.3.9.9-3.2-.2-.3C3.8 15 3.3 13.5 3.3 12c0-4.8 3.9-8.7 8.7-8.7s8.7 3.9 8.7 8.7-3.9 8-8.7 8z"/>
+    </svg>
+  );
+}
 
 const founderSocials = [
   {
@@ -46,88 +39,69 @@ const founderSocials = [
 function About() {
   return (
     <div>
-      <section className="bg-ink text-cream px-6 md:px-10 py-28 text-center">
-        <h1 className="text-display text-[14vw] md:text-[9vw]">
-          we are a <span className="text-serif-italic">young,</span><br/>
-          future-proof team of<br/>
-          12 digitally native<br/>
-          <span className="text-serif-italic text-lime">wunderkinder.</span> not to brag!
+      {/* HEADER SECTION */}
+      <section className="bg-ink text-cream px-6 md:px-10 py-24 text-center">
+        <span className="inline-block bg-lime text-ink border-2 border-cream rounded-full px-4 py-1 text-sm font-semibold rotate-[-2deg] mb-6">
+          Single Operator · Direct Accountability
+        </span>
+        <h1 className="text-display text-[15vw] md:text-[9vw] leading-[0.88] text-cream">
+          There is no studio.<br/>
+          <span className="text-serif-italic text-lime">There's me.</span>
         </h1>
       </section>
 
-      <section className="px-6 md:px-10 py-24 grid md:grid-cols-12 gap-10 items-end">
-        <div className="md:col-span-7">
-          <span className="inline-block bg-pink border-2 border-ink rounded-full px-4 py-1 text-sm rotate-[-3deg] mb-6">about the studio</span>
-          <h2 className="text-display text-[12vw] md:text-[7vw]">
-            we exist where<br/>
-            <span className="text-serif-italic">commerce</span> meets<br/>
-            the cosmos.
-          </h2>
-        </div>
-        <div className="md:col-span-5">
-          <div className="relative wiggle">
-            <img src={hero} alt="studio" loading="lazy" width={1600} height={1200} className="aspect-[4/5] w-full object-cover rounded-2xl border-2 border-ink shadow-[8px_8px_0_0_var(--ink)]" />
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-lime border-y-2 border-ink">
-        <div className="px-6 md:px-10 py-24 grid md:grid-cols-12 gap-10">
-          <div className="md:col-span-4">
-            <span className="text-xs uppercase tracking-widest opacity-70">manifesto</span>
-          </div>
-          <div className="md:col-span-8 space-y-6 text-xl md:text-2xl">
-            <p>The astrology industry is exploding. Millions search their birth chart every day, yet most astrologer brands still look — and sound — the same.</p>
-            <p>Astrology Marketing was founded to change that. We bring the rigour of a performance agency, the eye of a fashion editorial, and the empathy of a longtime believer.</p>
-            <p className="text-serif-italic text-3xl md:text-4xl">our mission: make spiritual practitioners impossible to ignore.</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="px-6 md:px-10 py-28">
-        <h2 className="text-display text-[12vw] md:text-[8vw] mb-12">what we <span className="text-serif-italic">believe</span></h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          {values.map((v, i) => (
-            <Reveal key={v.t} variant={i % 2 === 0 ? "left" : "right"} delay={i * 80} className="rounded-2xl border-2 border-ink p-10 hover:-translate-y-1 transition-transform duration-300" >
-              <div style={{ background: v.color }} className="-m-10 p-10 rounded-2xl">
-                <h3 className="text-display text-4xl text-ink">{v.t}</h3>
-                <p className="mt-3 text-ink/80">{v.d}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      <section className="bg-ink text-cream px-6 md:px-10 py-28">
+      {/* MAIN BIO SECTION */}
+      <section className="px-6 md:px-10 py-24 max-w-6xl mx-auto">
         <div className="grid md:grid-cols-12 gap-12 items-center">
           <Reveal variant="left" className="md:col-span-5">
             <div className="relative">
               <img
                 src={founderImg}
-                alt="Founder of Astrology Marketing"
+                alt="Kumar Neepu"
                 loading="lazy"
                 width={1122}
                 height={1402}
-                className="aspect-[4/5] w-full rounded-2xl border-2 border-lime object-cover object-top"
+                className="aspect-[4/5] w-full rounded-2xl border-2 border-ink shadow-[10px_10px_0_0_var(--ink)] object-cover object-top"
               />
-              <span className="absolute -bottom-4 -right-3 rotate-[-4deg] bg-lime text-ink border-2 border-ink rounded-full px-4 py-1 text-sm">the founder ✦</span>
+              <span className="absolute -bottom-4 -right-3 rotate-[-4deg] bg-lime text-ink border-2 border-ink rounded-full px-4 py-1 text-sm font-semibold">
+                Kumar Neepu ✦
+              </span>
             </div>
           </Reveal>
-          <Reveal variant="right" className="md:col-span-7">
-            <span className="text-xs uppercase tracking-widest opacity-60">founder's note</span>
-            <h2 className="mt-4 text-display text-[11vw] md:text-[5vw] leading-[0.9]">
-              built for the ones who<br/><span className="text-serif-italic text-lime">read the sky.</span>
-            </h2>
-            <div className="mt-8 space-y-5 text-lg opacity-85 max-w-2xl">
-              <p className="text-serif-italic text-2xl text-lime">"Astrologers change lives every day — but most of them are invisible online. That felt wrong."</p>
-              <p>I started Astrology Marketing after watching brilliant astrologers with waiting lists of loyal clients struggle to get a single reel seen. The craft was there. The storytelling wasn't.</p>
-              <p>So we built a studio that speaks both languages: the language of the cosmos, and the language of the algorithm. Every edit, caption and ad we ship is designed to make a genuine practitioner impossible to scroll past.</p>
-              <p>If you're serious about your practice, we'll treat your brand like our own chart — carefully, and with intent.</p>
+
+          <Reveal variant="right" className="md:col-span-7 space-y-6 text-lg md:text-xl text-ink/90 leading-relaxed">
+            <p className="text-serif-italic text-2xl md:text-3xl text-ink font-medium leading-snug">
+              I started in television — assistant director at Balaji Telefilms. Then six years at Guruji Astro, building their social media from the inside. That's where I learned that astrology content and astrology bookings are two completely different problems.
+            </p>
+
+            <p>
+              Most astrologers I meet have already solved the first one. Their reels get views. Their following grows. And almost none of it turns into someone paying for a consultation — because nothing in the content tells a viewer how to book, when, or why now.
+            </p>
+
+            <p>
+              That gap is the whole reason I do this. Since leaving I've worked with more than 100 astrologers, tarot readers and numerologists. It worked for about 80 of them.
+            </p>
+
+            <p className="p-6 rounded-2xl bg-cream border-2 border-ink text-ink font-medium">
+              I take a handful of clients at a time. Not a positioning strategy — it's just me doing the work, and I'd rather do four properly than fifteen badly.
+            </p>
+
+            <div className="flex items-center gap-3 pt-2 text-ink font-semibold">
+              <MapPin size={22} className="text-coral" />
+              <span>Delhi and Varanasi. I work with clients across India, and a few outside it.</span>
             </div>
-            <div className="mt-8 border-l-4 border-lime pl-5">
-              <p className="text-display text-3xl">Kumar Neepu</p>
-              <p className="text-sm opacity-70">Founder & Creative Director · astrologymarketing.in</p>
-              <div className="mt-4 flex gap-3">
+
+            <div className="pt-6 flex flex-wrap items-center gap-4">
+              <a
+                href="https://wa.link/nmlzuz"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 rounded-full bg-[#25D366] text-white px-7 py-4 font-semibold border-2 border-ink shadow-[4px_4px_0_0_var(--ink)] hover:scale-105 transition"
+              >
+                <WhatsAppIcon size={20} /> Message me on WhatsApp
+              </a>
+
+              <div className="flex gap-3">
                 {founderSocials.map(({ label, href, Icon }) => (
                   <a
                     key={label}
@@ -135,9 +109,9 @@ function About() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={label}
-                    className="grid h-11 w-11 place-items-center rounded-full border border-cream/30 text-cream hover:bg-lime hover:text-ink hover:border-lime transition"
+                    className="grid h-12 w-12 place-items-center rounded-full border-2 border-ink bg-cream text-ink hover:bg-lime transition"
                   >
-                    <Icon size={18} />
+                    <Icon size={20} />
                   </a>
                 ))}
               </div>
@@ -146,27 +120,33 @@ function About() {
         </div>
       </section>
 
-      <section className="bg-ink text-cream px-6 md:px-10 pb-28">
-        <h2 className="text-display text-[12vw] md:text-[8vw] mb-12">the <span className="text-serif-italic text-lime">constellation</span></h2>
-        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
-          {team.map((t, i) => (
-            <Reveal key={t.n} variant="up" delay={i * 100} className="rounded-2xl border-2 border-cream/20 p-6 hover:border-lime hover:-translate-y-2 transition-all duration-300">
-              <div className="aspect-square rounded-xl mb-4 grid place-items-center text-display text-7xl text-ink" style={{ background: t.color }}>
-                {t.n.split(" ").map(w => w[0]).join("")}
-              </div>
-              <h3 className="text-display text-2xl">{t.n}</h3>
-              <p className="text-sm opacity-70">{t.r}</p>
-              <p className="text-serif-italic text-lime mt-2">{t.sign} ☉</p>
-            </Reveal>
-          ))}
+      {/* CORE PHILOSOPHY */}
+      <section className="bg-lime border-y-2 border-ink px-6 md:px-10 py-20">
+        <div className="max-w-4xl mx-auto text-center space-y-6">
+          <Sparkles size={32} className="mx-auto text-ink" />
+          <h2 className="text-display text-4xl md:text-6xl text-ink">
+            No account managers. No junior editors.
+          </h2>
+          <p className="text-lg md:text-2xl text-ink/90 font-normal max-w-2xl mx-auto">
+            When you hire Astrology Marketing, every script, reel format, and campaign optimization is executed directly by me.
+          </p>
         </div>
       </section>
 
-      <section className="px-6 md:px-10 py-28 text-center">
-        <h2 className="text-display text-[14vw] md:text-[8vw]">let's make magic,<br/><span className="text-serif-italic">on a deadline.</span></h2>
-        <Link to="/contact" className="mt-10 inline-flex items-center gap-3 rounded-full bg-ink px-8 py-4 text-cream font-medium hover:bg-coral transition">
-          get in touch <ArrowUpRight size={18}/>
-        </Link>
+      {/* BOTTOM CTA */}
+      <section className="px-6 md:px-10 py-28 text-center bg-cream">
+        <h2 className="text-display text-[14vw] md:text-[8vw]">
+          ready to work together?<br/>
+          <span className="text-serif-italic text-coral">let's talk.</span>
+        </h2>
+        <a
+          href="https://wa.link/nmlzuz"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-10 inline-flex items-center gap-3 rounded-full bg-ink px-8 py-4 text-cream font-medium hover:bg-coral transition"
+        >
+          <WhatsAppIcon size={20} /> Message me on WhatsApp <ArrowUpRight size={18}/>
+        </a>
       </section>
     </div>
   );
