@@ -1,15 +1,21 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight, Instagram, Linkedin, MapPin, Sparkles } from "lucide-react";
+import { ArrowUpRight, Instagram, Linkedin, MapPin } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import founderImg from "@/assets/FOUNDER_IMAGE.jpeg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Kumar Neepu | Astrology Marketing" },
-      { name: "description", content: "There is no studio. There's me — Kumar Neepu. Ex-Balaji Telefilms AD, 6 years inside Guruji Astro. Turning content into consultation bookings." },
-      { property: "og:title", content: "About — Kumar Neepu" },
-      { property: "og:description", content: "There is no studio. There's me." },
+      { title: "Kumar Neepu — Astrology Business Coach & Marketer" },
+      { name: "description", content: "Kumar Neepu, astrology business coach: ex-Balaji Telefilms AD, 6 years building Guruji Astro's social media, 100+ astrologers. Delhi & Varanasi." },
+      { property: "og:title", content: "Kumar Neepu — Astrology Business Coach & Marketer" },
+      { property: "og:description", content: "Kumar Neepu, astrology business coach: ex-Balaji Telefilms AD, 6 years building Guruji Astro's social media, 100+ astrologers. Delhi & Varanasi." },
+      { property: "og:url", content: "https://astrologymarketing.in/about" },
+      { name: "twitter:title", content: "Kumar Neepu — Astrology Business Coach & Marketer" },
+      { name: "twitter:description", content: "Ex-Balaji Telefilms AD, 6 years building Guruji Astro's social media. Delhi & Varanasi." },
+    ],
+    links: [
+      { rel: "canonical", href: "https://astrologymarketing.in/about" },
     ],
   }),
   component: About,
@@ -18,7 +24,7 @@ export const Route = createFileRoute("/about")({
 function WhatsAppIcon({ size = 20 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-      <path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.2-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.5-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5s-.7-1.7-1-2.3c-.3-.6-.5-.5-.7-.5H7.7c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5 4.5 1.7.7 2.4.8 3.3.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.4.8 3.1 1.3 4.8 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.3.9.9-3.2-.2-.3C3.8 15 3.3 13.5 3.3 12c0-4.8 3.9-8.7 8.7-8.7s8.7 3.9 8.7 8.7-3.9 8-8.7 8z"/>
+      <path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.2-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.5-.5.1-.2 0-.4 0-.5s-.7-1.7-1-2.3c-.3-.6-.5-.5-.7-.5H7.7c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5 4.5 1.7.7 2.4.8 3.3.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.4.8 3.1 1.3 4.8 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.3.9.9-3.2-.2-.3C3.8 15 3.3 13.5 3.3 12c0-4.8 3.9-8.7 8.7-8.7s8.7 3.9 8.7 8.7-3.9 8-8.7 8z"/>
     </svg>
   );
 }
@@ -42,12 +48,15 @@ function About() {
       {/* HEADER SECTION */}
       <section className="bg-ink text-cream px-6 md:px-10 py-24 text-center">
         <span className="inline-block bg-lime text-ink border-2 border-cream rounded-full px-4 py-1 text-sm font-semibold rotate-[-2deg] mb-6">
-          Single Operator · Direct Accountability
+          Single Operator · Direct Accountability ✦
         </span>
         <h1 className="text-display text-[15vw] md:text-[9vw] leading-[0.88] text-cream">
           There is no studio.<br/>
           <span className="text-serif-italic text-lime">There's me.</span>
         </h1>
+        <h2 className="mt-8 text-serif-italic text-2xl md:text-4xl text-cream/90 font-medium max-w-4xl mx-auto leading-snug">
+          Astrology business coach — from film sets to Guruji Astro
+        </h2>
       </section>
 
       {/* MAIN BIO SECTION */}
@@ -57,7 +66,7 @@ function About() {
             <div className="relative">
               <img
                 src={founderImg}
-                alt="Kumar Neepu"
+                alt="Kumar Neepu, astrology business coach"
                 loading="lazy"
                 width={1122}
                 height={1402}
@@ -71,15 +80,15 @@ function About() {
 
           <Reveal variant="right" className="md:col-span-7 space-y-6 text-lg md:text-xl text-ink/90 leading-relaxed">
             <p className="text-serif-italic text-2xl md:text-3xl text-ink font-medium leading-snug">
-              I started in television — assistant director at Balaji Telefilms. Then six years at Guruji Astro, building their social media from the inside. That's where I learned that astrology content and astrology bookings are two completely different problems.
+              I started in television as an assistant director at <strong>Balaji Telefilms</strong>. Then spent six years at <strong>Guruji Astro</strong>, building their <strong>Instagram</strong> and <strong>YouTube</strong> social media operations from the inside.
             </p>
 
             <p>
-              Most astrologers I meet have already solved the first one. Their reels get views. Their following grows. And almost none of it turns into someone paying for a consultation — because nothing in the content tells a viewer how to book, when, or why now.
+              As an independent <strong>astrology business coach</strong>, I learned that astrology content and consultation bookings are two completely different problems. Most astrologers have solved content — their Reels get views. But almost none of it turns into paid consultations because nothing tells a viewer how or why to book now.
             </p>
 
             <p>
-              That gap is the whole reason I do this. Since leaving I've worked with more than 100 astrologers, tarot readers and numerologists. It worked for about 80 of them.
+              That gap is the whole reason I work with spiritual practitioners. Since leaving <strong>Guruji Astro</strong>, I've worked with more than 100 astrologers, tarot readers, and numerologists across <strong>Delhi</strong>, <strong>Varanasi</strong>, and across India.
             </p>
 
             <p className="p-6 rounded-2xl bg-cream border-2 border-ink text-ink font-medium">
@@ -118,35 +127,6 @@ function About() {
             </div>
           </Reveal>
         </div>
-      </section>
-
-      {/* CORE PHILOSOPHY */}
-      <section className="bg-lime border-y-2 border-ink px-6 md:px-10 py-20">
-        <div className="max-w-4xl mx-auto text-center space-y-6">
-          <Sparkles size={32} className="mx-auto text-ink" />
-          <h2 className="text-display text-4xl md:text-6xl text-ink">
-            No account managers. No junior editors.
-          </h2>
-          <p className="text-lg md:text-2xl text-ink/90 font-normal max-w-2xl mx-auto">
-            When you hire Astrology Marketing, every script, reel format, and campaign optimization is executed directly by me.
-          </p>
-        </div>
-      </section>
-
-      {/* BOTTOM CTA */}
-      <section className="px-6 md:px-10 py-28 text-center bg-cream">
-        <h2 className="text-display text-[14vw] md:text-[8vw]">
-          ready to work together?<br/>
-          <span className="text-serif-italic text-coral">let's talk.</span>
-        </h2>
-        <a
-          href="https://wa.link/nmlzuz"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-10 inline-flex items-center gap-3 rounded-full bg-ink px-8 py-4 text-cream font-medium hover:bg-coral transition"
-        >
-          <WhatsAppIcon size={20} /> Message me on WhatsApp <ArrowUpRight size={18}/>
-        </a>
       </section>
     </div>
   );

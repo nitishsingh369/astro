@@ -1,16 +1,22 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
-import { Instagram, Linkedin, Mail, MapPin, ArrowUpRight } from "lucide-react";
+import { Instagram, Linkedin, Mail, MapPin, ArrowUpRight, Sparkles } from "lucide-react";
 import { sendContactMessage } from "@/lib/contact.functions";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Kumar Neepu | Astrology Marketing" },
-      { name: "description", content: "Tell me about your practice. I reply the same day." },
-      { property: "og:title", content: "Contact — Kumar Neepu" },
-      { property: "og:description", content: "Tell me about your practice." },
+      { title: "Contact Kumar Neepu | Free Instagram Audit for Astrologers" },
+      { name: "description", content: "Get a free Instagram audit for your astrology, tarot or numerology page. WhatsApp or email Kumar Neepu directly. Delhi & Varanasi, clients across India." },
+      { property: "og:title", content: "Contact Kumar Neepu | Free Instagram Audit for Astrologers" },
+      { property: "og:description", content: "Get a free Instagram audit for your astrology, tarot or numerology page. Direct contact with Kumar Neepu." },
+      { property: "og:url", content: "https://astrologymarketing.in/contact" },
+      { name: "twitter:title", content: "Contact Kumar Neepu | Free Instagram Audit" },
+      { name: "twitter:description", content: "Get a free Instagram audit for your astrology page. Direct WhatsApp or email contact." },
+    ],
+    links: [
+      { rel: "canonical", href: "https://astrologymarketing.in/contact" },
     ],
   }),
   component: Contact,
@@ -19,7 +25,7 @@ export const Route = createFileRoute("/contact")({
 function WhatsAppIcon({ size = 20 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-      <path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.2-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.5-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5s-.7-1.7-1-2.3c-.3-.6-.5-.5-.7-.5H7.7c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5 4.5 1.7.7 2.4.8 3.3.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.4.8 3.1 1.3 4.8 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.3.9.9-3.2-.2-.3C3.8 15 3.3 13.5 3.3 12c0-4.8 3.9-8.7 8.7-8.7s8.7 3.9 8.7 8.7-3.9 8-8.7 8z"/>
+      <path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.2-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.5-.5.1-.2 0-.4 0-.5s-.7-1.7-1-2.3c-.3-.6-.5-.5-.7-.5H7.7c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5 4.5 1.7.7 2.4.8 3.3.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.4.8 3.1 1.3 4.8 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.3.9.9-3.2-.2-.3C3.8 15 3.3 13.5 3.3 12c0-4.8 3.9-8.7 8.7-8.7s8.7 3.9 8.7 8.7-3.9 8-8.7 8z"/>
     </svg>
   );
 }
@@ -54,25 +60,27 @@ function Contact() {
   };
 
   return (
-    <div>
-      <section className="px-6 md:px-10 pt-10 pb-12 text-center">
-        <span className="inline-block bg-lime border-2 border-ink rounded-full px-4 py-1 text-sm font-medium rotate-[-2deg] mb-6">
-          Direct Contact ✦
+    <div className="bg-background text-ink">
+      <section className="px-6 md:px-10 pt-10 pb-12 text-center max-w-4xl mx-auto">
+        <span className="inline-block bg-lime border-2 border-ink rounded-full px-4 py-1 text-sm font-semibold rotate-[-2deg] mb-6">
+          Direct Contact &amp; Free Page Review ✦
         </span>
-        <h1 className="text-display text-[15vw] md:text-[9vw] leading-[0.88]">
-          Tell me about<br/>
-          <span className="text-serif-italic text-coral">your practice.</span>
+        <h1 className="text-display text-[12vw] sm:text-[8vw] md:text-[5.5vw] leading-[0.9 text-ink font-bold">
+          Get a free Instagram audit for your astrology page
         </h1>
+        <p className="mt-6 text-lg md:text-xl text-ink/80 leading-relaxed font-medium max-w-2xl mx-auto">
+          WhatsApp or email <strong>Kumar Neepu</strong> directly. Based in Delhi &amp; Varanasi, working with astrologers, tarot readers &amp; numerologists across India.
+        </p>
       </section>
 
       <section className="px-6 md:px-10 pb-28 max-w-6xl mx-auto grid md:grid-cols-12 gap-12">
         <div className="md:col-span-5 space-y-8">
           {/* WHATSAPP MAIN BUTTON */}
           <div className="rounded-2xl border-2 border-ink p-8 bg-lime shadow-[6px_6px_0_0_var(--ink)]">
-            <p className="text-xs uppercase tracking-widest text-ink font-semibold mb-2">Fastest Response</p>
+            <p className="text-xs uppercase tracking-widest text-ink font-bold mb-2">Fastest Response</p>
             <h3 className="text-display text-3xl text-ink">WhatsApp Direct</h3>
-            <p className="mt-2 text-sm text-ink/80">
-              Message me directly to discuss your content and consultation goals.
+            <p className="mt-2 text-sm text-ink/80 font-medium">
+              Message me directly on WhatsApp to get your free Instagram page review and discuss your consultation goals.
             </p>
             <a
               href="https://wa.link/nmlzuz"
@@ -80,7 +88,7 @@ function Contact() {
               rel="noopener noreferrer"
               className="mt-6 flex items-center justify-center gap-2 rounded-full bg-[#25D366] text-white px-6 py-4 font-bold border-2 border-ink shadow-[2px_2px_0_0_var(--ink)] hover:scale-105 transition"
             >
-              <WhatsAppIcon size={20} /> Message on WhatsApp
+              <WhatsAppIcon size={20} /> Message Kumar Neepu on WhatsApp
             </a>
           </div>
 
@@ -91,13 +99,13 @@ function Contact() {
                 <Mail size={18} className="text-coral" /> info@astrologymarketing.in
               </li>
               <li className="flex gap-3 items-center font-medium">
-                <MapPin size={18} className="text-coral" /> Delhi &amp; Varanasi
+                <MapPin size={18} className="text-coral" /> Delhi &amp; Varanasi, India
               </li>
             </ul>
           </div>
 
           <div className="border-l-4 border-coral pl-6 text-serif-italic text-2xl text-ink font-medium">
-            "I reply to every inquiry the same day."
+            "I review every page personally and reply the same day."
           </div>
 
           <div>
@@ -123,17 +131,18 @@ function Contact() {
           </div>
         </div>
 
-        {/* 4-FIELD FORM */}
+        {/* FORM */}
         <form className="md:col-span-7 rounded-2xl border-2 border-ink p-8 md:p-10 bg-cream shadow-[6px_6px_0_0_var(--ink)]" onSubmit={onSubmit}>
           {sent ? (
             <div className="text-center py-16">
               <div className="text-display text-5xl text-ink">thank you <span className="text-serif-italic text-coral">✦</span></div>
-              <p className="mt-6 text-lg text-ink/80">Your message has been received. I'll reply to you <strong>the same day</strong>.</p>
+              <p className="mt-6 text-lg text-ink/80">Your message has been received. I'll send your Instagram audit <strong>the same day</strong>.</p>
             </div>
           ) : (
             <div className="space-y-6">
-              <h2 className="text-display text-3xl text-ink mb-2">Send a Message</h2>
-              
+              <h2 className="text-display text-3xl text-ink mb-2">Request Your Free Audit</h2>
+              <p className="text-sm text-ink/75">Fill out your details below and Kumar Neepu will analyze your Instagram profile layout, hooks &amp; booking conversion flow.</p>
+
               <div>
                 <label className="text-xs uppercase tracking-widest font-semibold text-ink/80">Your Name</label>
                 <input
@@ -170,14 +179,14 @@ function Contact() {
               </div>
 
               <div>
-                <label className="text-xs uppercase tracking-widest font-semibold text-ink/80">Tell me about your practice</label>
+                <label className="text-xs uppercase tracking-widest font-semibold text-ink/80">Tell me about your practice &amp; goals</label>
                 <textarea
                   name="msg"
-                  rows={5}
+                  rows={4}
                   required
                   maxLength={2000}
                   className="mt-2 w-full bg-transparent border-b-2 border-ink focus:border-coral outline-none py-3 resize-none text-ink font-medium"
-                  placeholder="What is your focus (Vedic, Tarot, Numerology)? What is your current booking challenge?"
+                  placeholder="What is your niche (Vedic Astrology, Tarot, Numerology)? What is your current monthly booking goal?"
                 />
               </div>
 
@@ -187,7 +196,7 @@ function Contact() {
                 disabled={loading}
                 className="w-full inline-flex items-center justify-center gap-3 rounded-full bg-ink px-8 py-4 text-cream font-semibold hover:bg-coral transition disabled:opacity-60"
               >
-                {loading ? "Sending…" : "Send"} <ArrowUpRight size={18}/>
+                {loading ? "Sending…" : "Get Free Audit"} <ArrowUpRight size={18}/>
               </button>
             </div>
           )}

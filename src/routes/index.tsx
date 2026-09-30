@@ -1,15 +1,65 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight, CheckCircle2, AlertCircle } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, AlertCircle, HelpCircle, Instagram, Youtube, Search } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import founderImg from "@/assets/FOUNDER_IMAGE.jpeg";
+
+const homeFaqs = [
+  {
+    q: "How is astrology marketing different from general business marketing?",
+    a: "Astrology is built entirely on personal trust, timing, and spiritual credibility. People do not buy astrology consultations from generic corporate graphics; they book because a practitioner's content spoke directly to their current life problem.",
+  },
+  {
+    q: "Do I need to come on camera for Instagram Reels?",
+    a: "Yes, face-to-camera videos convert significantly higher than text quotes or stock graphics. Viewers need to see your face and hear your voice to feel comfortable booking a ₹1,100–₹5,100 personal reading.",
+  },
+  {
+    q: "How long does it take to start getting consultation bookings?",
+    a: "With an optimized Instagram bio, structured daily stories, and direct WhatsApp booking links, clients usually start seeing inbound inquiries within 14–30 days of consistent execution.",
+  },
+  {
+    q: "Will I work with an account manager or directly with Kumar Neepu?",
+    a: "You work directly with me — Kumar Neepu. There are no junior staff or account managers. I handle strategy and production execution 1-on-1.",
+  },
+  {
+    q: "What types of spiritual practitioners do you work with?",
+    a: "Vedic Astrologers, Tarot Readers, Numerologists, Palmists, and Vastu Consultants based in India and serving international NRI diaspora clients.",
+  },
+];
+
+const homeFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": homeFaqs.map(f => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": f.a,
+    },
+  })),
+};
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Kumar Neepu — Content to Consultation Bookings for Astrologers" },
+      { title: "Astrology Marketing for Astrologers | Kumar Neepu" },
       { name: "description", content: "I turn social media content into consultation bookings for astrologers, tarot readers and numerologists. 6 years inside Guruji Astro." },
-      { property: "og:title", content: "Kumar Neepu — Marketing for Astrologers" },
-      { property: "og:description", content: "Followers don't pay you. Bookings do. Direct 1-on-1 marketing for spiritual practitioners." },
+      { property: "og:title", content: "Astrology Marketing for Astrologers | Kumar Neepu" },
+      { property: "og:description", content: "I turn social media content into consultation bookings for astrologers, tarot readers and numerologists. 6 years inside Guruji Astro." },
+      { property: "og:url", content: "https://astrologymarketing.in" },
+      { property: "og:image", content: "https://astrologymarketing.in/og-image.png" },
+      { name: "twitter:title", content: "Astrology Marketing for Astrologers | Kumar Neepu" },
+      { name: "twitter:description", content: "I turn social media content into consultation bookings for astrologers, tarot readers and numerologists. 6 years inside Guruji Astro." },
+      { name: "twitter:image", content: "https://astrologymarketing.in/og-image.png" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://astrologymarketing.in" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(homeFaqSchema),
+      },
     ],
   }),
   component: Home,
@@ -37,7 +87,7 @@ function Sticker({ children, color, rotate = -4, className = "" }: { children: R
 function WhatsAppIcon({ size = 20 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-      <path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.2-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.5-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5s-.7-1.7-1-2.3c-.3-.6-.5-.5-.7-.5H7.7c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5 4.5 1.7.7 2.4.8 3.3.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.4.8 3.1 1.3 4.8 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.3.9.9-3.2-.2-.3C3.8 15 3.3 13.5 3.3 12c0-4.8 3.9-8.7 8.7-8.7s8.7 3.9 8.7 8.7-3.9 8-8.7 8z"/>
+      <path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.2-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.5-.5.1-.2 0-.4 0-.5s-.7-1.7-1-2.3c-.3-.6-.5-.5-.7-.5H7.7c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5 4.5 1.7.7 2.4.8 3.3.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.4.8 3.1 1.3 4.8 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.3.9.9-3.2-.2-.3C3.8 15 3.3 13.5 3.3 12c0-4.8 3.9-8.7 8.7-8.7s8.7 3.9 8.7 8.7-3.9 8-8.7 8z"/>
     </svg>
   );
 }
@@ -56,7 +106,7 @@ function Home() {
             <span className="h-2 w-2 rounded-full bg-lime animate-pulse" /> 6 years inside Guruji Astro
           </span>
           <Sticker color="var(--lime)" rotate={-2}>✦ 100+ astrologers worked with</Sticker>
-          <Sticker color="var(--pink)" rotate={2}>No team · You work with me</Sticker>
+          <Sticker color="var(--pink)" rotate={2}>Digital Marketing Agency for Astrologers</Sticker>
         </Reveal>
 
         <div className="grid md:grid-cols-12 gap-10 items-center">
@@ -66,12 +116,17 @@ function Home() {
               <span className="text-serif-italic text-coral">bookings do.</span>
             </Reveal>
 
-            <Reveal variant="up" delay={200} className="mt-8 space-y-4 text-base md:text-xl text-ink/90 leading-relaxed max-w-2xl">
+            {/* MANDATORY SUB-LINE UNDER H1 */}
+            <p className="mt-6 text-display text-2xl md:text-3xl text-ink font-semibold">
+              Digital marketing for astrologers, tarot readers &amp; numerologists
+            </p>
+
+            <Reveal variant="up" delay={200} className="mt-6 space-y-4 text-base md:text-xl text-ink/90 leading-relaxed max-w-2xl">
               <p>
-                <strong>I'm Kumar Neepu.</strong> I spent six years running social media at Guruji Astro, from the inside — not as a consultant. Since then I've worked with more than 100 astrologers, tarot readers and numerologists.
+                <strong>I'm Kumar Neepu.</strong> I spent six years running social media at Guruji Astro from the inside. As a specialized <strong>astrology marketing agency</strong>, I turn Instagram content, Reels, and YouTube videos into paid 1-on-1 consultation bookings.
               </p>
               <p className="text-serif-italic text-xl md:text-2xl text-ink font-medium">
-                I do one thing: turn your content into consultation bookings. No team, no account manager. You work with me.
+                No junior team, no agency fluff. You work directly with me.
               </p>
             </Reveal>
 
@@ -99,7 +154,7 @@ function Home() {
               <div className="relative wiggle">
                 <img
                   src={founderImg}
-                  alt="Kumar Neepu"
+                  alt="Kumar Neepu, astrology business coach"
                   width={1122}
                   height={1402}
                   className="aspect-[4/5] w-full object-cover object-top rounded-2xl border-2 border-ink shadow-[10px_10px_0_0_var(--ink)]"
@@ -113,8 +168,93 @@ function Home() {
         </div>
       </section>
 
+      {/* WHY MOST ASTROLOGY MARKETING GETS FOLLOWERS, NOT BOOKINGS */}
+      <section className="px-6 md:px-10 py-24 bg-cream border-y-2 border-ink">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="text-xs uppercase tracking-widest text-coral font-bold">Industry Analysis</span>
+            <h2 className="text-display text-4xl md:text-6xl text-ink mt-2">
+              Why most astrology marketing gets followers, not bookings
+            </h2>
+            <p className="mt-4 text-lg text-ink/80 max-w-2xl mx-auto">
+              Follower growth and consultation revenue require two completely different marketing strategies.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <Reveal variant="up" delay={100} className="bg-background rounded-2xl p-8 border-2 border-ink shadow-[4px_4px_0_0_var(--ink)]">
+              <h3 className="text-display text-2xl text-ink">1. Viral Views vs. Paid Intent</h3>
+              <p className="mt-3 text-base text-ink/80 leading-relaxed">
+                Generic transit graphics get likes, but fail to tell the viewer why they need a personal Kundli analysis or remedy right now.
+              </p>
+            </Reveal>
+
+            <Reveal variant="up" delay={200} className="bg-background rounded-2xl p-8 border-2 border-ink shadow-[4px_4px_0_0_var(--ink)]">
+              <h3 className="text-display text-2xl text-ink">2. High Friction Booking Path</h3>
+              <p className="mt-3 text-base text-ink/80 leading-relaxed">
+                Slow website forms reduce conversions. Direct WhatsApp booking sequences capture hot inquiry leads immediately.
+              </p>
+            </Reveal>
+
+            <Reveal variant="up" delay={300} className="bg-background rounded-2xl p-8 border-2 border-ink shadow-[4px_4px_0_0_var(--ink)]">
+              <h3 className="text-display text-2xl text-ink">3. Generic Agency Fluff</h3>
+              <p className="mt-3 text-base text-ink/80 leading-relaxed">
+                Standard digital agencies don't understand Dasha cycles, Sade Sati, or Nakshatra nuances. We live and breathe spiritual marketing.
+              </p>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* INSTAGRAM, YOUTUBE & GOOGLE FOR ASTROLOGERS */}
+      <section className="px-6 md:px-10 py-24 bg-background border-b-2 border-ink">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="text-xs uppercase tracking-widest text-lime bg-ink px-3 py-1 rounded-full font-bold">Platform Strategy</span>
+            <h2 className="text-display text-4xl md:text-6xl text-ink mt-4">
+              Instagram, YouTube &amp; Google for astrologers
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <Reveal variant="up" delay={100} className="bg-cream rounded-2xl p-8 border-2 border-ink shadow-[5px_5px_0_0_var(--ink)]">
+              <Instagram size={32} className="text-pink mb-4 text-ink" />
+              <h3 className="text-display text-2xl text-ink">Instagram Reels &amp; Stories</h3>
+              <p className="mt-3 text-sm text-ink/80 leading-relaxed">
+                Face-to-camera transit reels and story booking sequences that convert casual followers into paid consultation clients.
+              </p>
+              <Link to="/instagram-marketing-for-astrologers" className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-coral hover:underline">
+                Explore Instagram Guide <ArrowUpRight size={16} />
+              </Link>
+            </Reveal>
+
+            <Reveal variant="up" delay={200} className="bg-cream rounded-2xl p-8 border-2 border-ink shadow-[5px_5px_0_0_var(--ink)]">
+              <Youtube size={32} className="text-coral mb-4" />
+              <h3 className="text-display text-2xl text-ink">YouTube Shorts &amp; Long-Form</h3>
+              <p className="mt-3 text-sm text-ink/80 leading-relaxed">
+                In-depth Kundli teaching videos that build evergreen search authority and long-term consultation flow.
+              </p>
+              <Link to="/services" className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-coral hover:underline">
+                View YouTube Package <ArrowUpRight size={16} />
+              </Link>
+            </Reveal>
+
+            <Reveal variant="up" delay={300} className="bg-cream rounded-2xl p-8 border-2 border-ink shadow-[5px_5px_0_0_var(--ink)]">
+              <Search size={32} className="text-lime text-ink mb-4" />
+              <h3 className="text-display text-2xl text-ink">Google My Business &amp; SEO</h3>
+              <p className="mt-3 text-sm text-ink/80 leading-relaxed">
+                Rank #1 for "best astrologer near me" in your city and build 5-star Google review proof.
+              </p>
+              <Link to="/seo-for-astrologers" className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-coral hover:underline">
+                Explore SEO Guide <ArrowUpRight size={16} />
+              </Link>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
       {/* THE THREE NUMBERS */}
-      <section className="bg-lime border-y-2 border-ink px-6 md:px-10 py-20">
+      <section className="bg-lime border-b-2 border-ink px-6 md:px-10 py-20">
         <div className="max-w-6xl mx-auto">
           <p className="text-xs uppercase tracking-widest text-ink/70 mb-4 font-semibold">The track record</p>
           <div className="grid gap-8 md:grid-cols-3 text-ink">
@@ -134,42 +274,8 @@ function Home() {
         </div>
       </section>
 
-      {/* ABOUT THE 20 IT DIDN'T WORK FOR */}
-      <section className="px-6 md:px-10 py-24 bg-cream">
-        <div className="max-w-4xl mx-auto rounded-3xl border-2 border-ink bg-ink text-cream p-8 md:p-14 shadow-[8px_8px_0_0_var(--coral)] relative overflow-hidden">
-          <div className="flex items-center gap-3 text-lime mb-4">
-            <AlertCircle size={24} />
-            <span className="text-xs uppercase tracking-widest font-semibold">Full transparency</span>
-          </div>
-          <h2 className="text-display text-4xl md:text-6xl text-cream">
-            About the 20 it didn't work for
-          </h2>
-          <div className="mt-8 space-y-6 text-lg md:text-xl text-cream/90 leading-relaxed font-normal">
-            <p>
-              Roughly one in five astrologers I've worked with didn't get the result they wanted. I'd rather say that here than have you find out in month three.
-            </p>
-            <p className="p-6 rounded-2xl bg-cream/10 border border-cream/20 text-cream">
-              In most of those cases it came down to one of two things: they wanted follower count and I was building bookings, which are not the same job — or the content needed them on camera consistently and that wasn't something they wanted to do.
-            </p>
-            <p className="text-serif-italic text-2xl text-lime">
-              Ask me about it on the call. If either of those sounds like you, we'll both save some money.
-            </p>
-          </div>
-          <div className="mt-10">
-            <a
-              href="https://wa.link/nmlzuz"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-lime text-ink px-6 py-3 font-semibold hover:bg-cream transition"
-            >
-              Ask me on WhatsApp <ArrowUpRight size={18} />
-            </a>
-          </div>
-        </div>
-      </section>
-
       {/* PROOF BLOCK - WHO I WORK WITH */}
-      <section className="px-6 md:px-10 py-28 bg-background border-t-2 border-ink">
+      <section className="px-6 md:px-10 py-28 bg-background border-b-2 border-ink">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
             <div>
@@ -178,13 +284,12 @@ function Home() {
                 who I <span className="text-serif-italic text-coral">work with</span>
               </h2>
             </div>
-            <p className="max-w-md text-base text-ink/80">
-              All three accounts are public. Go and look at them.
+            <p className="max-w-md text-base text-ink/80 font-medium">
+              All three accounts are public. Go and inspect their live social presence.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {/* Client 1 */}
             <Reveal variant="up" delay={100} className="rounded-2xl border-2 border-ink bg-cream p-8 flex flex-col justify-between hover:-translate-y-1 transition shadow-[4px_4px_0_0_var(--ink)]">
               <div>
                 <div className="flex justify-between items-start">
@@ -214,7 +319,6 @@ function Home() {
               </a>
             </Reveal>
 
-            {/* Client 2 */}
             <Reveal variant="up" delay={200} className="rounded-2xl border-2 border-ink bg-cream p-8 flex flex-col justify-between hover:-translate-y-1 transition shadow-[4px_4px_0_0_var(--ink)]">
               <div>
                 <div className="flex justify-between items-start">
@@ -224,7 +328,7 @@ function Home() {
                 <h3 className="text-display text-3xl mt-4 text-ink">Truths of Astro</h3>
                 <p className="text-serif-italic text-lg text-ink/70 mt-1">YouTube Channel</p>
                 <p className="mt-6 text-base text-ink/80 leading-relaxed">
-                  84.6K subscribers. Long-form Vedic astrology teaching — the format most astrologers are told won't work.
+                  84.6K subscribers. Long-form Vedic astrology teaching — building high authority and search consultations.
                 </p>
               </div>
               <span className="mt-8 inline-flex items-center gap-2 text-sm font-semibold opacity-70">
@@ -232,7 +336,6 @@ function Home() {
               </span>
             </Reveal>
 
-            {/* Client 3 */}
             <Reveal variant="up" delay={300} className="rounded-2xl border-2 border-ink bg-cream p-8 flex flex-col justify-between hover:-translate-y-1 transition shadow-[4px_4px_0_0_var(--ink)]">
               <div>
                 <div className="flex justify-between items-start">
@@ -249,7 +352,7 @@ function Home() {
                   @starstuck_signs
                 </a>
                 <p className="mt-6 text-base text-ink/80 leading-relaxed">
-                  Vedic astrologer in Toronto, serving the Canadian and US diaspora. 16K followers, with a booking path that actually converts.
+                  Vedic astrologer in Toronto, serving Canadian &amp; US diaspora. 16K followers with a direct booking path.
                 </p>
               </div>
               <a
@@ -262,11 +365,48 @@ function Home() {
               </a>
             </Reveal>
           </div>
+        </div>
+      </section>
 
-          <div className="mt-12 text-center p-6 rounded-2xl bg-lime/30 border-2 border-ink">
-            <p className="text-serif-italic text-xl text-ink font-medium">
-              "All three accounts are public. Go and look at them."
-            </p>
+      {/* FAQS: MARKETING FOR ASTROLOGERS */}
+      <section className="px-6 md:px-10 py-24 bg-cream border-b-2 border-ink">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <HelpCircle size={36} className="mx-auto text-coral mb-3" />
+            <h2 className="text-display text-4xl md:text-6xl text-ink">
+              FAQs: marketing for astrologers
+            </h2>
+            <p className="mt-3 text-lg text-ink/80">Common questions about digital marketing for spiritual practitioners.</p>
+          </div>
+
+          <div className="space-y-6">
+            {[
+              {
+                q: "How is astrology marketing different from general business marketing?",
+                a: "Astrology is built entirely on personal trust, timing, and spiritual credibility. People do not buy astrology consultations from generic corporate graphics; they book because a practitioner's content spoke directly to their current life problem.",
+              },
+              {
+                q: "Do I need to come on camera for Instagram Reels?",
+                a: "Yes, face-to-camera videos convert significantly higher than text quotes or stock graphics. Viewers need to see your face and hear your voice to feel comfortable booking a ₹1,100–₹5,100 personal reading.",
+              },
+              {
+                q: "How long does it take to start getting consultation bookings?",
+                a: "With an optimized Instagram bio, structured daily stories, and direct WhatsApp booking links, clients usually start seeing inbound inquiries within 14–30 days of consistent execution.",
+              },
+              {
+                q: "Will I work with an account manager or directly with Kumar Neepu?",
+                a: "You work directly with me — Kumar Neepu. There are no junior staff or account managers. I handle strategy and production execution 1-on-1.",
+              },
+              {
+                q: "What types of spiritual practitioners do you work with?",
+                a: "Vedic Astrologers, Tarot Readers, Numerologists, Palmists, and Vastu Consultants based in India and serving international NRI diaspora clients.",
+              },
+            ].map((faq, i) => (
+              <Reveal key={faq.q} variant="up" delay={i * 60} className="rounded-2xl border-2 border-ink bg-background p-6 md:p-8 shadow-[4px_4px_0_0_var(--ink)]">
+                <h3 className="text-display text-xl md:text-2xl text-ink font-semibold">{faq.q}</h3>
+                <p className="mt-3 text-base text-ink/80 leading-relaxed font-medium">{faq.a}</p>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
@@ -290,7 +430,7 @@ function Home() {
             to="/contact"
             className="inline-flex items-center gap-2 rounded-full border-2 border-cream px-8 py-4 text-cream font-medium hover:bg-cream hover:text-ink transition"
           >
-            Send inquiry <ArrowUpRight size={18} />
+            Get Free Audit <ArrowUpRight size={18} />
           </Link>
         </div>
       </section>

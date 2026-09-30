@@ -1,14 +1,64 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight, Video, Share2, Youtube, MapPin, Star, PlusCircle } from "lucide-react";
+import { ArrowUpRight, Video, Share2, Youtube, MapPin, Star, PlusCircle, HelpCircle } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
+
+const servicesFaqs = [
+  {
+    q: "What is included in the single monthly package?",
+    a: "Scripted Reels/Shorts production, feed posts, story booking flows, YouTube & Facebook distribution, Google Business Profile optimization, and review collection systems.",
+  },
+  {
+    q: "Do I need to hire a separate video editor or graphic designer?",
+    a: "No. Everything is produced and managed by Kumar Neepu. You don't need a designer, video editor, or social media manager.",
+  },
+  {
+    q: "How are WhatsApp booking leads qualified?",
+    a: "We set up automated story keywords and direct WhatsApp links so callers know your consultation fee before initiating a chat.",
+  },
+  {
+    q: "Can I choose add-ons like Meta Ads or Course Launches separately?",
+    a: "Yes. Add-on services like Facebook/Meta ads campaigns and Astrology workshop launches can be added anytime.",
+  },
+  {
+    q: "What is the commitment period?",
+    a: "Month-to-month contracts. No long-term lock-in periods because your growth and consultation bookings speak for themselves.",
+  },
+];
+
+const servicesFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": servicesFaqs.map(f => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": f.a,
+    },
+  })),
+};
 
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services — Kumar Neepu | Marketing for Astrologers" },
+      { title: "Social Media Marketing for Astrologers | Services" },
       { name: "description", content: "One package. Everything your presence needs, run by one person who knows the industry. Turn your content into consultation bookings." },
-      { property: "og:title", content: "Services — Marketing for Astrologers" },
-      { property: "og:description", content: "One package. Everything your presence needs, run by one person who knows the industry." },
+      { property: "og:title", content: "Social Media Marketing for Astrologers | Services" },
+      { property: "og:description", content: "One package. Everything your presence needs, run by one person who knows the industry. Turn your content into consultation bookings." },
+      { property: "og:url", content: "https://astrologymarketing.in/services" },
+      { property: "og:image", content: "https://astrologymarketing.in/og-image.png" },
+      { name: "twitter:title", content: "Social Media Marketing for Astrologers | Services" },
+      { name: "twitter:description", content: "One package. Everything your presence needs, run by one person who knows the industry." },
+      { name: "twitter:image", content: "https://astrologymarketing.in/og-image.png" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://astrologymarketing.in/services" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(servicesFaqSchema),
+      },
     ],
   }),
   component: Services,
@@ -17,7 +67,7 @@ export const Route = createFileRoute("/services")({
 function WhatsAppIcon({ size = 20 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-      <path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.2-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.5-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5s-.7-1.7-1-2.3c-.3-.6-.5-.5-.7-.5H7.7c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5 4.5 1.7.7 2.4.8 3.3.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.4.8 3.1 1.3 4.8 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.3.9.9-3.2-.2-.3C3.8 15 3.3 13.5 3.3 12c0-4.8 3.9-8.7 8.7-8.7s8.7 3.9 8.7 8.7-3.9 8-8.7 8z"/>
+      <path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.2-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.5-.5.1-.2 0-.4 0-.5s-.7-1.7-1-2.3c-.3-.6-.5-.5-.7-.5H7.7c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5 4.5 1.7.7 2.4.8 3.3.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.4.8 3.1 1.3 4.8 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.3.9.9-3.2-.2-.3C3.8 15 3.3 13.5 3.3 12c0-4.8 3.9-8.7 8.7-8.7s8.7 3.9 8.7 8.7-3.9 8-8.7 8z"/>
     </svg>
   );
 }
@@ -25,20 +75,20 @@ function WhatsAppIcon({ size = 20 }: { size?: number }) {
 const packageItems = [
   {
     icon: Video,
-    t: "Reels & Short Video Production",
-    d: "Scripted, cut and formatted specifically to turn curious viewers into consultation leads.",
+    t: "Instagram Reels for Astrologers",
+    d: "Scripted, cut and formatted specifically to turn curious viewers into paid consultation leads.",
+    badge: "Monthly Core",
+  },
+  {
+    icon: Youtube,
+    t: "YouTube for Astrologers",
+    d: "Packaging long-form teaching videos alongside YouTube Shorts that build searchable, long-term authority.",
     badge: "Monthly Core",
   },
   {
     icon: Share2,
-    t: "Feed Posts & Carousels",
-    d: "High-value Vedic and spiritual insights designed for saves, shares, and authority building.",
-    badge: "Monthly Core",
-  },
-  {
-    icon: Share2,
-    t: "Daily Story Sequences",
-    d: "Intentionally structured story flows that direct warm viewers straight into booking a consultation.",
+    t: "Feed Posts & Daily Story Sequences",
+    d: "High-value Vedic and spiritual insights paired with story flows that direct warm viewers into booking.",
     badge: "Monthly Core",
   },
   {
@@ -48,29 +98,23 @@ const packageItems = [
     badge: "Monthly Core",
   },
   {
-    icon: Youtube,
-    t: "YouTube Shorts & Long-Form Video",
-    d: "Packaging long-form teaching videos alongside YouTube Shorts that build searchable authority.",
-    badge: "Monthly Core",
-  },
-  {
     icon: MapPin,
-    t: "Google My Business & Local Search",
-    d: "Optimizing your local search profile so clients searching for consultation in your area find you.",
+    t: "Google My Business for Astrologers",
+    d: "Optimizing your local search profile so clients searching for consultation in your city find you first.",
     badge: "Setup & Ops",
   },
   {
     icon: Star,
     t: "Consultation Review System",
-    d: "Setting up a systematic review collector that turns happy consultation clients into public proof.",
+    d: "Setting up an automated review collector that turns happy consultation clients into public proof.",
     badge: "System Build",
   },
 ];
 
 const addOns = [
-  { t: "Meta Paid Performance Ads", d: "Targeted Facebook & Instagram ads engineered strictly for consultation bookings and ROAS." },
-  { t: "Course & Workshop Launches", d: "Full funnel setup and promotional content blitz for your astrology courses or webinars." },
-  { t: "WhatsApp Booking Automation", d: "Custom direct WhatsApp chat flow to qualify and book clients instantly." },
+  { t: "Facebook & Meta Ads for Astrologers", d: "Targeted Facebook & Instagram ads engineered strictly for high-converting astrology leads and consultation ROAS." },
+  { t: "Astrology Course & Workshop Launches", d: "Full funnel setup and promotional content blitz for your astrology courses, tarot masterclasses or webinars." },
+  { t: "WhatsApp Booking Automation", d: "Custom direct WhatsApp chat flow to qualify and book consultation clients instantly." },
 ];
 
 function Services() {
@@ -81,11 +125,11 @@ function Services() {
         <span className="inline-block bg-lime border-2 border-ink rounded-full px-4 py-1 text-sm font-semibold rotate-[-2deg] mb-8">
           All-in-one execution ✦
         </span>
-        <h1 className="text-display text-[14vw] md:text-[8vw] leading-[0.9]">
-          One package. Everything your presence needs, <span className="text-serif-italic text-coral">run by one person who knows the industry.</span>
+        <h1 className="text-display text-[12vw] md:text-[6vw] leading-[0.9] text-ink font-bold">
+          Social media marketing for astrologers — one package, run by one person
         </h1>
-        <p className="mt-8 max-w-2xl mx-auto text-lg md:text-xl text-ink/80 leading-relaxed">
-          No fragmented deliverables, no moon-phase filler. Just the real content, systems, and distribution needed to turn viewers into paid consultations.
+        <p className="mt-8 max-w-3xl mx-auto text-lg md:text-xl text-ink/80 leading-relaxed font-medium">
+          Instagram, YouTube, Google My Business, Facebook ads &amp; WhatsApp booking for astrologers, tarot readers and numerologists — one monthly package by Kumar Neepu.
         </p>
       </section>
 
@@ -128,6 +172,49 @@ function Services() {
                 <PlusCircle size={28} className="text-lime" />
                 <h3 className="text-display text-2xl mt-6 text-cream">{a.t}</h3>
                 <p className="mt-3 text-sm text-cream/80 leading-relaxed">{a.d}</p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICES FAQS */}
+      <section className="px-6 md:px-10 py-24 bg-cream border-t-2 border-ink">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <HelpCircle size={36} className="mx-auto text-coral mb-3" />
+            <h2 className="text-display text-4xl md:text-6xl text-ink">
+              Frequently Asked Questions
+            </h2>
+            <p className="mt-3 text-lg text-ink/80">Everything you need to know about working with Kumar Neepu.</p>
+          </div>
+
+          <div className="space-y-6">
+            {[
+              {
+                q: "What is included in the single monthly package?",
+                a: "Scripted Reels/Shorts production, feed posts, story booking flows, YouTube & Facebook distribution, Google Business Profile optimization, and review collection systems.",
+              },
+              {
+                q: "Do I need to hire a separate video editor or graphic designer?",
+                a: "No. Everything is produced and managed by Kumar Neepu. You don't need a designer, video editor, or social media manager.",
+              },
+              {
+                q: "How are WhatsApp booking leads qualified?",
+                a: "We set up automated story keywords and direct WhatsApp links so callers know your consultation fee before initiating a chat.",
+              },
+              {
+                q: "Can I choose add-ons like Meta Ads or Course Launches separately?",
+                a: "Yes. Add-on services like Facebook/Meta ads campaigns and Astrology workshop launches can be added anytime.",
+              },
+              {
+                q: "What is the commitment period?",
+                a: "Month-to-month contracts. No long-term lock-in periods because your growth and consultation bookings speak for themselves.",
+              },
+            ].map((faq, i) => (
+              <Reveal key={faq.q} variant="up" delay={i * 60} className="rounded-2xl border-2 border-ink bg-background p-6 md:p-8 shadow-[4px_4px_0_0_var(--ink)]">
+                <h3 className="text-display text-xl md:text-2xl text-ink font-semibold">{faq.q}</h3>
+                <p className="mt-3 text-base text-ink/80 leading-relaxed font-medium">{faq.a}</p>
               </Reveal>
             ))}
           </div>

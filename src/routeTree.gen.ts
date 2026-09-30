@@ -10,6 +10,10 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as SeoForAstrologersRouteImport } from './routes/seo-for-astrologers'
+import { Route as MarketingForTarotReadersRouteImport } from './routes/marketing-for-tarot-readers'
+import { Route as MarketingForNumerologistsRouteImport } from './routes/marketing-for-numerologists'
+import { Route as InstagramMarketingForAstrologersRouteImport } from './routes/instagram-marketing-for-astrologers'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -19,6 +23,29 @@ const ServicesRoute = ServicesRouteImport.update({
   path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SeoForAstrologersRoute = SeoForAstrologersRouteImport.update({
+  id: '/seo-for-astrologers',
+  path: '/seo-for-astrologers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MarketingForTarotReadersRoute =
+  MarketingForTarotReadersRouteImport.update({
+    id: '/marketing-for-tarot-readers',
+    path: '/marketing-for-tarot-readers',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const MarketingForNumerologistsRoute =
+  MarketingForNumerologistsRouteImport.update({
+    id: '/marketing-for-numerologists',
+    path: '/marketing-for-numerologists',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const InstagramMarketingForAstrologersRoute =
+  InstagramMarketingForAstrologersRouteImport.update({
+    id: '/instagram-marketing-for-astrologers',
+    path: '/instagram-marketing-for-astrologers',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -39,12 +66,20 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/instagram-marketing-for-astrologers': typeof InstagramMarketingForAstrologersRoute
+  '/marketing-for-numerologists': typeof MarketingForNumerologistsRoute
+  '/marketing-for-tarot-readers': typeof MarketingForTarotReadersRoute
+  '/seo-for-astrologers': typeof SeoForAstrologersRoute
   '/services': typeof ServicesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/instagram-marketing-for-astrologers': typeof InstagramMarketingForAstrologersRoute
+  '/marketing-for-numerologists': typeof MarketingForNumerologistsRoute
+  '/marketing-for-tarot-readers': typeof MarketingForTarotReadersRoute
+  '/seo-for-astrologers': typeof SeoForAstrologersRoute
   '/services': typeof ServicesRoute
 }
 export interface FileRoutesById {
@@ -52,20 +87,53 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/instagram-marketing-for-astrologers': typeof InstagramMarketingForAstrologersRoute
+  '/marketing-for-numerologists': typeof MarketingForNumerologistsRoute
+  '/marketing-for-tarot-readers': typeof MarketingForTarotReadersRoute
+  '/seo-for-astrologers': typeof SeoForAstrologersRoute
   '/services': typeof ServicesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/contact' | '/services'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/instagram-marketing-for-astrologers'
+    | '/marketing-for-numerologists'
+    | '/marketing-for-tarot-readers'
+    | '/seo-for-astrologers'
+    | '/services'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/contact' | '/services'
-  id: '__root__' | '/' | '/about' | '/contact' | '/services'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/instagram-marketing-for-astrologers'
+    | '/marketing-for-numerologists'
+    | '/marketing-for-tarot-readers'
+    | '/seo-for-astrologers'
+    | '/services'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/instagram-marketing-for-astrologers'
+    | '/marketing-for-numerologists'
+    | '/marketing-for-tarot-readers'
+    | '/seo-for-astrologers'
+    | '/services'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
+  InstagramMarketingForAstrologersRoute: typeof InstagramMarketingForAstrologersRoute
+  MarketingForNumerologistsRoute: typeof MarketingForNumerologistsRoute
+  MarketingForTarotReadersRoute: typeof MarketingForTarotReadersRoute
+  SeoForAstrologersRoute: typeof SeoForAstrologersRoute
   ServicesRoute: typeof ServicesRoute
 }
 
@@ -76,6 +144,34 @@ declare module '@tanstack/react-router' {
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/seo-for-astrologers': {
+      id: '/seo-for-astrologers'
+      path: '/seo-for-astrologers'
+      fullPath: '/seo-for-astrologers'
+      preLoaderRoute: typeof SeoForAstrologersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/marketing-for-tarot-readers': {
+      id: '/marketing-for-tarot-readers'
+      path: '/marketing-for-tarot-readers'
+      fullPath: '/marketing-for-tarot-readers'
+      preLoaderRoute: typeof MarketingForTarotReadersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/marketing-for-numerologists': {
+      id: '/marketing-for-numerologists'
+      path: '/marketing-for-numerologists'
+      fullPath: '/marketing-for-numerologists'
+      preLoaderRoute: typeof MarketingForNumerologistsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/instagram-marketing-for-astrologers': {
+      id: '/instagram-marketing-for-astrologers'
+      path: '/instagram-marketing-for-astrologers'
+      fullPath: '/instagram-marketing-for-astrologers'
+      preLoaderRoute: typeof InstagramMarketingForAstrologersRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -106,6 +202,10 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
+  InstagramMarketingForAstrologersRoute: InstagramMarketingForAstrologersRoute,
+  MarketingForNumerologistsRoute: MarketingForNumerologistsRoute,
+  MarketingForTarotReadersRoute: MarketingForTarotReadersRoute,
+  SeoForAstrologersRoute: SeoForAstrologersRoute,
   ServicesRoute: ServicesRoute,
 }
 export const routeTree = rootRouteImport
