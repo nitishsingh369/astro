@@ -285,11 +285,11 @@ function Home() {
               </h2>
             </div>
             <p className="max-w-md text-base text-ink/80 font-medium">
-              All three accounts are public. Go and inspect their live social presence.
+              All accounts are public. Go and inspect their live social presence.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <Reveal variant="up" delay={100} className="rounded-2xl border-2 border-ink bg-cream p-8 flex flex-col justify-between hover:-translate-y-1 transition shadow-[4px_4px_0_0_var(--ink)]">
               <div>
                 <div className="flex justify-between items-start">
@@ -319,7 +319,7 @@ function Home() {
               </a>
             </Reveal>
 
-            <Reveal variant="up" delay={200} className="rounded-2xl border-2 border-ink bg-cream p-8 flex flex-col justify-between hover:-translate-y-1 transition shadow-[4px_4px_0_0_var(--ink)]">
+            <Reveal variant="up" delay={150} className="rounded-2xl border-2 border-ink bg-cream p-8 flex flex-col justify-between hover:-translate-y-1 transition shadow-[4px_4px_0_0_var(--ink)]">
               <div>
                 <div className="flex justify-between items-start">
                   <span className="text-xs uppercase tracking-widest text-ink/60 font-semibold">YouTube</span>
@@ -340,6 +340,64 @@ function Home() {
               </div>
               <a
                 href="https://www.youtube.com/@TRUTHSOFASTRO"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 inline-flex items-center gap-2 text-sm font-semibold underline underline-offset-4"
+              >
+                View live account <ArrowUpRight size={16} />
+              </a>
+            </Reveal>
+
+            <Reveal variant="up" delay={200} className="rounded-2xl border-2 border-ink bg-cream p-8 flex flex-col justify-between hover:-translate-y-1 transition shadow-[4px_4px_0_0_var(--ink)]">
+              <div>
+                <div className="flex justify-between items-start">
+                  <span className="text-xs uppercase tracking-widest text-ink/60 font-semibold">Instagram · Vedic Astrology</span>
+                  <CheckCircle2 size={20} className="text-coral" />
+                </div>
+                <h3 className="text-display text-3xl mt-4 text-ink">Astro With Sukhanshu</h3>
+                <a
+                  href="https://www.instagram.com/astrowith_sukhanshu"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-serif-italic text-lg text-coral underline underline-offset-4 block mt-1 hover:text-ink"
+                >
+                  @astrowith_sukhanshu
+                </a>
+                <p className="mt-6 text-base text-ink/80 leading-relaxed">
+                  Vedic astrology practitioner sharing transit insights, horoscope breakdowns, and daily consultation booking flows.
+                </p>
+              </div>
+              <a
+                href="https://www.instagram.com/astrowith_sukhanshu"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 inline-flex items-center gap-2 text-sm font-semibold underline underline-offset-4"
+              >
+                View live account <ArrowUpRight size={16} />
+              </a>
+            </Reveal>
+
+            <Reveal variant="up" delay={250} className="rounded-2xl border-2 border-ink bg-cream p-8 flex flex-col justify-between hover:-translate-y-1 transition shadow-[4px_4px_0_0_var(--ink)]">
+              <div>
+                <div className="flex justify-between items-start">
+                  <span className="text-xs uppercase tracking-widest text-ink/60 font-semibold">Instagram · Tarot &amp; Spiritual</span>
+                  <CheckCircle2 size={20} className="text-coral" />
+                </div>
+                <h3 className="text-display text-3xl mt-4 text-ink">Divine Kush</h3>
+                <a
+                  href="https://www.instagram.com/divinerkush"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-serif-italic text-lg text-coral underline underline-offset-4 block mt-1 hover:text-ink"
+                >
+                  @divinerkush
+                </a>
+                <p className="mt-6 text-base text-ink/80 leading-relaxed">
+                  Tarot reader and spiritual practitioner utilizing Pick-A-Card reels and structured story booking slots.
+                </p>
+              </div>
+              <a
+                href="https://www.instagram.com/divinerkush"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-8 inline-flex items-center gap-2 text-sm font-semibold underline underline-offset-4"
