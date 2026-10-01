@@ -94,6 +94,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:description", content: "Digital & social media marketing for astrologers, tarot readers and numerologists." },
       { name: "twitter:image", content: "https://astrologymarketing.in/og-image.png" },
       { name: "robots", content: "index, follow" },
+      { name: "p:domain_verify", content: "38dddcafb362268323a9adb8e446571a" },
     ],
     links: [
       { rel: "canonical", href: "https://astrologymarketing.in" },
