@@ -257,7 +257,7 @@ export function Footer() {
             <div className="mt-6 flex gap-2">
               {[
                 { Icon: Instagram, href: "https://www.instagram.com/astro.marketingg?igsh=aG8wZXB2dHhsM3ds", label: "@astro.marketingg on Instagram" },
-                { Icon: Youtube, href: "https://www.youtube.com", label: "Astrology Marketing on YouTube" },
+                { Icon: Youtube, href: "https://www.youtube.com/@TRUTHSOFASTRO", label: "Truths of Astro on YouTube" },
                 { Icon: Linkedin, href: "https://www.linkedin.com/in/kumarneepu?utm_source=share_via&utm_content=profile&utm_medium=member_android", label: "Kumar Neepu on LinkedIn" },
               ].map(({ Icon, href, label }) => (
                 <a

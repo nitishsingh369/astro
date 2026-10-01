@@ -326,14 +326,26 @@ function Home() {
                   <CheckCircle2 size={20} className="text-coral" />
                 </div>
                 <h3 className="text-display text-3xl mt-4 text-ink">Truths of Astro</h3>
-                <p className="text-serif-italic text-lg text-ink/70 mt-1">YouTube Channel</p>
+                <a
+                  href="https://www.youtube.com/@TRUTHSOFASTRO"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-serif-italic text-lg text-coral underline underline-offset-4 block mt-1 hover:text-ink"
+                >
+                  @TRUTHSOFASTRO
+                </a>
                 <p className="mt-6 text-base text-ink/80 leading-relaxed">
                   84.6K subscribers. Long-form Vedic astrology teaching — building high authority and search consultations.
                 </p>
               </div>
-              <span className="mt-8 inline-flex items-center gap-2 text-sm font-semibold opacity-70">
-                Public YouTube account
-              </span>
+              <a
+                href="https://www.youtube.com/@TRUTHSOFASTRO"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 inline-flex items-center gap-2 text-sm font-semibold underline underline-offset-4"
+              >
+                View live account <ArrowUpRight size={16} />
+              </a>
             </Reveal>
 
             <Reveal variant="up" delay={300} className="rounded-2xl border-2 border-ink bg-cream p-8 flex flex-col justify-between hover:-translate-y-1 transition shadow-[4px_4px_0_0_var(--ink)]">
