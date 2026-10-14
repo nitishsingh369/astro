@@ -9,29 +9,34 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as ServicesRouteImport } from './routes/services'
-import { Route as SeoForAstrologersRouteImport } from './routes/seo-for-astrologers'
-import { Route as MarketingForTarotReadersRouteImport } from './routes/marketing-for-tarot-readers'
-import { Route as MarketingForNumerologistsRouteImport } from './routes/marketing-for-numerologists'
-import { Route as InstagramMarketingForAstrologersRouteImport } from './routes/instagram-marketing-for-astrologers'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as InstagramMarketingForAstrologersRouteImport } from './routes/instagram-marketing-for-astrologers'
+import { Route as MarketingForNumerologistsRouteImport } from './routes/marketing-for-numerologists'
+import { Route as MarketingForTarotReadersRouteImport } from './routes/marketing-for-tarot-readers'
+import { Route as SeoForAstrologersRouteImport } from './routes/seo-for-astrologers'
+import { Route as ServicesRouteImport } from './routes/services'
 
-const ServicesRoute = ServicesRouteImport.update({
-  id: '/services',
-  path: '/services',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SeoForAstrologersRoute = SeoForAstrologersRouteImport.update({
-  id: '/seo-for-astrologers',
-  path: '/seo-for-astrologers',
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
-const MarketingForTarotReadersRoute =
-  MarketingForTarotReadersRouteImport.update({
-    id: '/marketing-for-tarot-readers',
-    path: '/marketing-for-tarot-readers',
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InstagramMarketingForAstrologersRoute =
+  InstagramMarketingForAstrologersRouteImport.update({
+    id: '/instagram-marketing-for-astrologers',
+    path: '/instagram-marketing-for-astrologers',
     getParentRoute: () => rootRouteImport,
   } as any)
 const MarketingForNumerologistsRoute =
@@ -40,25 +45,20 @@ const MarketingForNumerologistsRoute =
     path: '/marketing-for-numerologists',
     getParentRoute: () => rootRouteImport,
   } as any)
-const InstagramMarketingForAstrologersRoute =
-  InstagramMarketingForAstrologersRouteImport.update({
-    id: '/instagram-marketing-for-astrologers',
-    path: '/instagram-marketing-for-astrologers',
+const MarketingForTarotReadersRoute =
+  MarketingForTarotReadersRouteImport.update({
+    id: '/marketing-for-tarot-readers',
+    path: '/marketing-for-tarot-readers',
     getParentRoute: () => rootRouteImport,
   } as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
+const SeoForAstrologersRoute = SeoForAstrologersRouteImport.update({
+  id: '/seo-for-astrologers',
+  path: '/seo-for-astrologers',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -139,46 +139,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/services': {
-      id: '/services'
-      path: '/services'
-      fullPath: '/services'
-      preLoaderRoute: typeof ServicesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/seo-for-astrologers': {
-      id: '/seo-for-astrologers'
-      path: '/seo-for-astrologers'
-      fullPath: '/seo-for-astrologers'
-      preLoaderRoute: typeof SeoForAstrologersRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/marketing-for-tarot-readers': {
-      id: '/marketing-for-tarot-readers'
-      path: '/marketing-for-tarot-readers'
-      fullPath: '/marketing-for-tarot-readers'
-      preLoaderRoute: typeof MarketingForTarotReadersRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/marketing-for-numerologists': {
-      id: '/marketing-for-numerologists'
-      path: '/marketing-for-numerologists'
-      fullPath: '/marketing-for-numerologists'
-      preLoaderRoute: typeof MarketingForNumerologistsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/instagram-marketing-for-astrologers': {
-      id: '/instagram-marketing-for-astrologers'
-      path: '/instagram-marketing-for-astrologers'
-      fullPath: '/instagram-marketing-for-astrologers'
-      preLoaderRoute: typeof InstagramMarketingForAstrologersRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -188,11 +153,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/instagram-marketing-for-astrologers': {
+      id: '/instagram-marketing-for-astrologers'
+      path: '/instagram-marketing-for-astrologers'
+      fullPath: '/instagram-marketing-for-astrologers'
+      preLoaderRoute: typeof InstagramMarketingForAstrologersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/marketing-for-numerologists': {
+      id: '/marketing-for-numerologists'
+      path: '/marketing-for-numerologists'
+      fullPath: '/marketing-for-numerologists'
+      preLoaderRoute: typeof MarketingForNumerologistsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/marketing-for-tarot-readers': {
+      id: '/marketing-for-tarot-readers'
+      path: '/marketing-for-tarot-readers'
+      fullPath: '/marketing-for-tarot-readers'
+      preLoaderRoute: typeof MarketingForTarotReadersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/seo-for-astrologers': {
+      id: '/seo-for-astrologers'
+      path: '/seo-for-astrologers'
+      fullPath: '/seo-for-astrologers'
+      preLoaderRoute: typeof SeoForAstrologersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
