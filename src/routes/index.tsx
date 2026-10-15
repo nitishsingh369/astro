@@ -492,6 +492,35 @@ function Home() {
                 View live account <ArrowUpRight size={16} />
               </a>
             </Reveal>
+
+            <Reveal variant="up" delay={450} className="rounded-2xl border-2 border-ink bg-cream p-8 flex flex-col justify-between hover:-translate-y-1 transition shadow-[4px_4px_0_0_var(--ink)]">
+              <div>
+                <div className="flex justify-between items-start">
+                  <span className="text-xs uppercase tracking-widest text-ink/60 font-semibold">Instagram · Tarot &amp; Psychic</span>
+                  <CheckCircle2 size={20} className="text-coral" />
+                </div>
+                <h3 className="text-display text-3xl mt-4 text-ink">Tripti Tiwari</h3>
+                <a
+                  href="https://www.instagram.com/tarotwithtripti"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-serif-italic text-lg text-coral underline underline-offset-4 block mt-1 hover:text-ink"
+                >
+                  @tarotwithtripti
+                </a>
+                <p className="mt-6 text-base text-ink/80 leading-relaxed">
+                  Tarot reader, crystal healer &amp; spell caster from Raipur. 214K followers with worldwide clients and active session booking.
+                </p>
+              </div>
+              <a
+                href="https://www.instagram.com/tarotwithtripti"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 inline-flex items-center gap-2 text-sm font-semibold underline underline-offset-4"
+              >
+                View live account <ArrowUpRight size={16} />
+              </a>
+            </Reveal>
           </div>
 
         </div>
